@@ -2,76 +2,72 @@ package fr.mbds.tp
 
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
-
-import java.nio.file.SecureDirectoryStream
-
 import static org.springframework.http.HttpStatus.*
-
 @Secured(['ROLE_ADMIN'])
-class MessageController {
+class UserController {
 
-    MessageService messageService
+    UserService userService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond messageService.list(params), model:[messageCount: messageService.count()]
+        respond userService.list(params), model:[userCount: userService.count()]
     }
 
     def show(Long id) {
-        respond messageService.get(id)
+        respond userService.get(id)
     }
 
     def create() {
-        respond new Message(params)
+        respond new User(params)
     }
 
-    def save(Message message) {
-        if (message == null) {
+    def save(User user) {
+        if (user == null) {
             notFound()
             return
         }
 
         try {
-            messageService.save(message)
+            userService.save(user)
         } catch (ValidationException e) {
-            respond message.errors, view:'create'
+            respond user.errors, view:'create'
             return
         }
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'message.label', default: 'Message'), message.id])
-                redirect message
+                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), user.id])
+                redirect user
             }
-            '*' { respond message, [status: CREATED] }
+            '*' { respond user, [status: CREATED] }
         }
     }
 
     def edit(Long id) {
-        respond messageService.get(id)
+        respond userService.get(id)
     }
 
-    def update(Message message) {
-        if (message == null) {
+    def update(User user) {
+        if (user == null) {
             notFound()
             return
         }
 
         try {
-            messageService.save(message)
+            userService.save(user)
         } catch (ValidationException e) {
-            respond message.errors, view:'edit'
+            respond user.errors, view:'edit'
             return
         }
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'message.label', default: 'Message'), message.id])
-                redirect message
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.id])
+                redirect user
             }
-            '*'{ respond message, [status: OK] }
+            '*'{ respond user, [status: OK] }
         }
     }
 
@@ -81,11 +77,11 @@ class MessageController {
             return
         }
 
-        messageService.delete(id)
+        userService.delete(id)
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'message.label', default: 'Message'), id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -95,7 +91,7 @@ class MessageController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'message.label', default: 'Message'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }

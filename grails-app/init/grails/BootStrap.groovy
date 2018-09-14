@@ -10,27 +10,26 @@ class BootStrap {
 
     def init = { servletContext ->
 
-        def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true, failOnError: true)
-        def gamingRole = new Role(authority: 'ROLE_USER').save(flush: true, failOnError: true)
+        def adminRole = new Role(authority: 'ROLE_ADMIN').save()
+        def gamingRole = new Role(authority: 'ROLE_USER').save()
 
 
-        def adminUser = new User(username: 'admin',password: 'password').save(flush: true, failOnError: true)
-        def playerUser = new User(username: 'playerUser',password: 'playerUser').save(flush: true, failOnError: true)
-        def playerTwoUser = new User(username: 'playerTwoUser',password: 'playerTwoUser').save(flush: true, failOnError: true)
+        def adminUser = new User(username: 'admin',password: 'password').save()
+        def playerUser = new User(username: 'playerUser',password: 'playerUser').save()
+        def playerTwoUser = new User(username: 'playerTwoUser',password: 'playerTwoUser').save()
 
-        UserRole.create(adminUser,adminRole)
-        UserRole.create(playerUser,gamingRole)
-        UserRole.create(playerTwoUser,gamingRole)
+        UserRole.create(adminUser,adminRole,true)
+        UserRole.create(playerUser,gamingRole,true)
+        UserRole.create(playerTwoUser,gamingRole,true)
 
+        def match = new Match(winner: playerUser, looser: playerTwoUser , winnerScore: 10, looserscore: 1).save()
 
+        new Message(author: playerUser, target: playerTwoUser, content:"hello friend").save()
+        new Message(author: playerTwoUser, target: playerUser , content:"hello friend").save()
 
-        def user1 = new User(username: 'Player1', password: 'Player1').save(flush: true, failOnError: true)
-        def user2 = new User(username: 'Player2', password: 'Player2').save(flush: true, failOnError: true)
-
-        def match = new Match(winner: user1, looser: user2, winnerScore: 10, looserscore: 1).save(flush: true, failOnError: true)
-
-       new Message(author: user1, target: user2, content:"hello friend").save(flush: true, failOnError: true)
-        new Message(author: user1, target: user2, content:"hello friend").save(flush: true, failOnError: true)
+        if(!adminUser.getAuthorities()){
+            //rediriger vers une autre page
+        }
     }
 
 

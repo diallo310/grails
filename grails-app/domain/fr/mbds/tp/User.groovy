@@ -1,5 +1,6 @@
 package fr.mbds.tp
 
+import grails.plugin.springsecurity.annotation.Secured
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import grails.compiler.GrailsCompileStatic
