@@ -81,6 +81,10 @@ img {
 
 .scaffold-list h1 {
     border: none;
+    color: black;
+    Font-Weight: Bold;
+    text-align: center;
+
 }
 
 .footer {

@@ -1,73 +1,72 @@
 package fr.mbds.tp
 
-<<<<<<< HEAD
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
-class HomeController {
+class RoleController {
 
-    HomeService homeService
+    RoleService roleService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond homeService.list(params), model:[homeCount: homeService.count()]
+        respond roleService.list(params), model:[roleCount: roleService.count()]
     }
 
     def show(Long id) {
-        respond homeService.get(id)
+        respond roleService.get(id)
     }
 
     def create() {
-        respond new Home(params)
+        respond new Role(params)
     }
 
-    def save(Home home) {
-        if (home == null) {
+    def save(Role role) {
+        if (role == null) {
             notFound()
             return
         }
 
         try {
-            homeService.save(home)
+            roleService.save(role)
         } catch (ValidationException e) {
-            respond home.errors, view:'create'
+            respond role.errors, view:'create'
             return
         }
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'home.label', default: 'Home'), home.id])
-                redirect home
+                flash.message = message(code: 'default.created.message', args: [message(code: 'role.label', default: 'Role'), role.id])
+                redirect role
             }
-            '*' { respond home, [status: CREATED] }
+            '*' { respond role, [status: CREATED] }
         }
     }
 
     def edit(Long id) {
-        respond homeService.get(id)
+        respond roleService.get(id)
     }
 
-    def update(Home home) {
-        if (home == null) {
+    def update(Role role) {
+        if (role == null) {
             notFound()
             return
         }
 
         try {
-            homeService.save(home)
+            roleService.save(role)
         } catch (ValidationException e) {
-            respond home.errors, view:'edit'
+            respond role.errors, view:'edit'
             return
         }
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'home.label', default: 'Home'), home.id])
-                redirect home
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'role.label', default: 'Role'), role.id])
+                redirect role
             }
-            '*'{ respond home, [status: OK] }
+            '*'{ respond role, [status: OK] }
         }
     }
 
@@ -77,11 +76,11 @@ class HomeController {
             return
         }
 
-        homeService.delete(id)
+        roleService.delete(id)
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'home.label', default: 'Home'), id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'role.label', default: 'Role'), id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -91,15 +90,10 @@ class HomeController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'home.label', default: 'Home'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'role.label', default: 'Role'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
         }
     }
-=======
-class HomeController {
-
-    def index() { }
->>>>>>> b16585fd7ad716c9b3c5c3d887cb55387dc6a0ed
 }

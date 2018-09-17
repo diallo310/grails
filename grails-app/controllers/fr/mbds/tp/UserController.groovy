@@ -7,6 +7,7 @@ import static org.springframework.http.HttpStatus.*
 class UserController {
 
     UserService userService
+    UserRoleService userRoleService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -109,5 +110,9 @@ class UserController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    def role(){
+        render userRoleService.list(params), model:[userRoleService: userRoleService.count()]
     }
 }

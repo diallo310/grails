@@ -1,12 +1,11 @@
 package fr.mbds.tp
 
-<<<<<<< HEAD
 import grails.testing.gorm.DomainUnitTest
 import grails.testing.web.controllers.ControllerUnitTest
 import grails.validation.ValidationException
 import spock.lang.*
 
-class HomeControllerSpec extends Specification implements ControllerUnitTest<HomeController>, DomainUnitTest<Home> {
+class RoleControllerSpec extends Specification implements ControllerUnitTest<RoleController>, DomainUnitTest<Role> {
 
     def populateValidParams(params) {
         assert params != null
@@ -18,7 +17,7 @@ class HomeControllerSpec extends Specification implements ControllerUnitTest<Hom
 
     void "Test the index action returns the correct model"() {
         given:
-        controller.homeService = Mock(HomeService) {
+        controller.roleService = Mock(RoleService) {
             1 * list(_) >> []
             1 * count() >> 0
         }
@@ -27,8 +26,8 @@ class HomeControllerSpec extends Specification implements ControllerUnitTest<Hom
         controller.index()
 
         then:"The model is correct"
-        !model.homeList
-        model.homeCount == 0
+        !model.roleList
+        model.roleCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -36,7 +35,7 @@ class HomeControllerSpec extends Specification implements ControllerUnitTest<Hom
         controller.create()
 
         then:"The model is correctly created"
-        model.home!= null
+        model.role!= null
     }
 
     void "Test the save action with a null instance"() {
@@ -46,14 +45,14 @@ class HomeControllerSpec extends Specification implements ControllerUnitTest<Hom
         controller.save(null)
 
         then:"A 404 error is returned"
-        response.redirectedUrl == '/home/index'
+        response.redirectedUrl == '/role/index'
         flash.message != null
     }
 
     void "Test the save action correctly persists"() {
         given:
-        controller.homeService = Mock(HomeService) {
-            1 * save(_ as Home)
+        controller.roleService = Mock(RoleService) {
+            1 * save(_ as Role)
         }
 
         when:"The save action is executed with a valid instance"
@@ -61,38 +60,38 @@ class HomeControllerSpec extends Specification implements ControllerUnitTest<Hom
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'POST'
         populateValidParams(params)
-        def home = new Home(params)
-        home.id = 1
+        def role = new Role(params)
+        role.id = 1
 
-        controller.save(home)
+        controller.save(role)
 
         then:"A redirect is issued to the show action"
-        response.redirectedUrl == '/home/show/1'
+        response.redirectedUrl == '/role/show/1'
         controller.flash.message != null
     }
 
     void "Test the save action with an invalid instance"() {
         given:
-        controller.homeService = Mock(HomeService) {
-            1 * save(_ as Home) >> { Home home ->
-                throw new ValidationException("Invalid instance", home.errors)
+        controller.roleService = Mock(RoleService) {
+            1 * save(_ as Role) >> { Role role ->
+                throw new ValidationException("Invalid instance", role.errors)
             }
         }
 
         when:"The save action is executed with an invalid instance"
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'POST'
-        def home = new Home()
-        controller.save(home)
+        def role = new Role()
+        controller.save(role)
 
         then:"The create view is rendered again with the correct model"
-        model.home != null
+        model.role != null
         view == 'create'
     }
 
     void "Test the show action with a null id"() {
         given:
-        controller.homeService = Mock(HomeService) {
+        controller.roleService = Mock(RoleService) {
             1 * get(null) >> null
         }
 
@@ -105,20 +104,20 @@ class HomeControllerSpec extends Specification implements ControllerUnitTest<Hom
 
     void "Test the show action with a valid id"() {
         given:
-        controller.homeService = Mock(HomeService) {
-            1 * get(2) >> new Home()
+        controller.roleService = Mock(RoleService) {
+            1 * get(2) >> new Role()
         }
 
         when:"A domain instance is passed to the show action"
         controller.show(2)
 
         then:"A model is populated containing the domain instance"
-        model.home instanceof Home
+        model.role instanceof Role
     }
 
     void "Test the edit action with a null id"() {
         given:
-        controller.homeService = Mock(HomeService) {
+        controller.roleService = Mock(RoleService) {
             1 * get(null) >> null
         }
 
@@ -131,15 +130,15 @@ class HomeControllerSpec extends Specification implements ControllerUnitTest<Hom
 
     void "Test the edit action with a valid id"() {
         given:
-        controller.homeService = Mock(HomeService) {
-            1 * get(2) >> new Home()
+        controller.roleService = Mock(RoleService) {
+            1 * get(2) >> new Role()
         }
 
         when:"A domain instance is passed to the show action"
         controller.edit(2)
 
         then:"A model is populated containing the domain instance"
-        model.home instanceof Home
+        model.role instanceof Role
     }
 
 
@@ -150,14 +149,14 @@ class HomeControllerSpec extends Specification implements ControllerUnitTest<Hom
         controller.update(null)
 
         then:"A 404 error is returned"
-        response.redirectedUrl == '/home/index'
+        response.redirectedUrl == '/role/index'
         flash.message != null
     }
 
     void "Test the update action correctly persists"() {
         given:
-        controller.homeService = Mock(HomeService) {
-            1 * save(_ as Home)
+        controller.roleService = Mock(RoleService) {
+            1 * save(_ as Role)
         }
 
         when:"The save action is executed with a valid instance"
@@ -165,31 +164,31 @@ class HomeControllerSpec extends Specification implements ControllerUnitTest<Hom
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'PUT'
         populateValidParams(params)
-        def home = new Home(params)
-        home.id = 1
+        def role = new Role(params)
+        role.id = 1
 
-        controller.update(home)
+        controller.update(role)
 
         then:"A redirect is issued to the show action"
-        response.redirectedUrl == '/home/show/1'
+        response.redirectedUrl == '/role/show/1'
         controller.flash.message != null
     }
 
     void "Test the update action with an invalid instance"() {
         given:
-        controller.homeService = Mock(HomeService) {
-            1 * save(_ as Home) >> { Home home ->
-                throw new ValidationException("Invalid instance", home.errors)
+        controller.roleService = Mock(RoleService) {
+            1 * save(_ as Role) >> { Role role ->
+                throw new ValidationException("Invalid instance", role.errors)
             }
         }
 
         when:"The save action is executed with an invalid instance"
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'PUT'
-        controller.update(new Home())
+        controller.update(new Role())
 
         then:"The edit view is rendered again with the correct model"
-        model.home != null
+        model.role != null
         view == 'edit'
     }
 
@@ -200,13 +199,13 @@ class HomeControllerSpec extends Specification implements ControllerUnitTest<Hom
         controller.delete(null)
 
         then:"A 404 is returned"
-        response.redirectedUrl == '/home/index'
+        response.redirectedUrl == '/role/index'
         flash.message != null
     }
 
     void "Test the delete action with an instance"() {
         given:
-        controller.homeService = Mock(HomeService) {
+        controller.roleService = Mock(RoleService) {
             1 * delete(2)
         }
 
@@ -216,7 +215,7 @@ class HomeControllerSpec extends Specification implements ControllerUnitTest<Hom
         controller.delete(2)
 
         then:"The user is redirected to index"
-        response.redirectedUrl == '/home/index'
+        response.redirectedUrl == '/role/index'
         flash.message != null
     }
 }
@@ -226,21 +225,3 @@ class HomeControllerSpec extends Specification implements ControllerUnitTest<Hom
 
 
 
-=======
-import grails.testing.web.controllers.ControllerUnitTest
-import spock.lang.Specification
-
-class HomeControllerSpec extends Specification implements ControllerUnitTest<HomeController> {
-
-    def setup() {
-    }
-
-    def cleanup() {
-    }
-
-    void "test something"() {
-        expect:"fix me"
-            true == false
-    }
-}
->>>>>>> b16585fd7ad716c9b3c5c3d887cb55387dc6a0ed
