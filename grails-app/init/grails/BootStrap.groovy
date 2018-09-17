@@ -26,10 +26,6 @@ class BootStrap {
 
         new Message(author: playerUser, target: playerTwoUser, content:"hello friend").save()
         new Message(author: playerTwoUser, target: playerUser , content:"hello friend").save()
-
-        if(!adminUser.getAuthorities()){
-            //rediriger vers une autre page
-        }
     }
 
 
