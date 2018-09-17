@@ -5,6 +5,7 @@ grails.plugin.springsecurity.userLookup.userDomainClassName = 'fr.mbds.tp.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'fr.mbds.tp.UserRole'
 grails.plugin.springsecurity.authority.className = 'fr.mbds.tp.Role'
 grails.plugin.springsecurity.requestMap.className = 'fr.mbds.tp.UserRole'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = 'http://localhost:8081/home/index'
 grails.plugin.springsecurity.securityConfigType = 'Annotation'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/**',               access: ['permitAll']],

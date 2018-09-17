@@ -19,6 +19,8 @@ class UserController {
         respond userService.get(id)
     }
 
+   /* def downloadedfile = {request.getFile('file');
+    downloadedfile.transferTo(new File('C:/temp/upload')) }*/
     def create() {
         respond new User(params)
     }
@@ -28,6 +30,17 @@ class UserController {
             notFound()
             return
         }
+        println params.profileImage.getClass()
+
+        String imagename =  new Date().getTime() + '.jpg'
+        String filenae = 'C:/wamp64/www/img/' + imagename
+
+        File imageFile = new File(filenae)
+        imageFile.createNewFile()
+
+        params.profileImage.transferTo(imageFile)
+
+        user.image = imagename
 
         try {
             userService.save(user)

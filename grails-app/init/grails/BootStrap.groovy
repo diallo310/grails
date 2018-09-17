@@ -5,11 +5,13 @@ import fr.mbds.tp.Message
 import fr.mbds.tp.Role
 import fr.mbds.tp.User
 import fr.mbds.tp.UserRole
-
+import grails.core.GrailsApplication
 class BootStrap {
 
-    def init = { servletContext ->
+    GrailsApplication grailsApplication
 
+    def init = { servletContext ->
+        def maxLineNumbers =  grailsApplication.config.getProperty('max.line.numbers')
         def adminRole = new Role(authority: 'ROLE_ADMIN').save()
         def gamingRole = new Role(authority: 'ROLE_USER').save()
 
