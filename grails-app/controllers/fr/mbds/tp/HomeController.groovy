@@ -1,6 +1,6 @@
 package fr.mbds.tp
 
-<<<<<<< HEAD
+
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
@@ -97,9 +97,5 @@ class HomeController {
             '*'{ render status: NOT_FOUND }
         }
     }
-=======
-class HomeController {
 
-    def index() { }
->>>>>>> b16585fd7ad716c9b3c5c3d887cb55387dc6a0ed
 }

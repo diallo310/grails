@@ -18,12 +18,10 @@
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
-<<<<<<< HEAD
-            <f:table collection="${userList}" properties="['username', 'accountLocked', 'accountExpired']" />
 
-=======
-            <f:table collection="${userList}" properties="username" label="User Name"/>
->>>>>>> b16585fd7ad716c9b3c5c3d887cb55387dc6a0ed
+            <f:table collection="${userList}" properties="['username','image' ,'accountLocked', 'accountExpired']" />
+
+
             <div class="pagination">
                 <g:paginate total="${userCount ?: 0}" />
             </div>

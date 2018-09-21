@@ -12,6 +12,7 @@ class BootStrap {
 
     def init = { servletContext ->
         def maxLineNumbers =  grailsApplication.config.getProperty('max.line.numbers')
+
         def adminRole = new Role(authority: 'ROLE_ADMIN').save()
         def gamingRole = new Role(authority: 'ROLE_USER').save()
 

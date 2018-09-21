@@ -29,14 +29,11 @@
                 <fieldset class="form">
                     <f:all bean="user"/>
                 </fieldset>
-<<<<<<< HEAD
+
                 <fieldset controller="user" about="">
                     <input type="file" name="profileImage"/>
                 </fieldset>
-=======
-                <input type ="file" name="file"/>
-                <input type="submit">
->>>>>>> b16585fd7ad716c9b3c5c3d887cb55387dc6a0ed
+
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>
