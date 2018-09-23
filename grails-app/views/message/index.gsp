@@ -18,11 +18,12 @@
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:table collection="${messageList}" properties="author,target,content" />
+            <g:render template="table" model="[table: table]"/>
 
             <div class="pagination">
                 <g:paginate total="${messageCount ?: 0}" />
             </div>
         </div>
+    <h1>***   ${UserProfile.username}   ***</h1>
     </body>
 </html>

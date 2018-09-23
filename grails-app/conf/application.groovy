@@ -8,7 +8,7 @@ grails.plugin.springsecurity.requestMap.className = 'fr.mbds.tp.UserRole'
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = 'http://localhost:8081/home/index'
 grails.plugin.springsecurity.securityConfigType = 'Annotation'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	[pattern: '/**',               access: ['permitAll']],
+	[pattern: '/**',             access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
 	[pattern: '/index',          access: ['permitAll']],
 	[pattern: '/index.gsp',      access: ['permitAll']],
