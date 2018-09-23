@@ -19,13 +19,11 @@
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
 
-            <f:table collection="${userList}" properties="['username','image' ,'accountLocked', 'accountExpired']" />
-
+            <g:render template="table" model="[table: table]"/>
 
             <div class="pagination">
                 <g:paginate total="${userCount ?: 0}" />
             </div>
-            <f:table collection="${userRoleList}" properties="" label="Role"/>
 
         </div>
     </body>

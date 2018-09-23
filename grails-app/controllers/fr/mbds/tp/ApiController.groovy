@@ -16,8 +16,9 @@ class ApiController {
                 render"get"
                 break;
 
-        }
+        }*/
     }
+
     def user(){
         switch (request.getMethod()){
             case"POST":
@@ -31,6 +32,7 @@ class ApiController {
             default:
                 response.status=405
                 break;
-        }*/
+        }
     }
 }
+

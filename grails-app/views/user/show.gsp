@@ -23,7 +23,7 @@
             <g:if test="${this.user.image}">
                 <img src="${"http://localhost:8080/img/" + this.user.image}" />
             </g:if>
-            <f:display bean="user"  />
+            <f:display bean="user" except="password" />
             <g:form resource="${this.user}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${this.user}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
