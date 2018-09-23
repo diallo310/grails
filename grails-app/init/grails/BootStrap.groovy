@@ -25,7 +25,7 @@ class BootStrap {
         UserRole.create(playerUser,gamingRole,true)
         UserRole.create(playerTwoUser,gamingRole,true)
 
-        def match = new Match(winner: playerUser, looser: playerTwoUser , winnerScore: 10, looserscore: 1).save()
+        def match = new Match(winner: playerUser, looser: playerTwoUser , winnerScore: 10, looserScore: 1).save()
 
         new Message(author: playerUser, target: playerTwoUser, content:"hello friend").save()
         new Message(author: playerTwoUser, target: playerUser , content:"hello friend").save()
