@@ -3,6 +3,7 @@
     <tr>
         <th>Username</th>
         <th>Image</th>
+        <th>Authorities</th>
     </tr>
     </thead>
     <tbody>
@@ -13,6 +14,11 @@
             </td>
             <td>
                 <img src="${"http://localhost:8080/img/" + user.image}"/>
+            </td>
+            <td>
+                <g:each in="${user.getAuthorities()}" var="role">
+                    <h2>${role.authority}</h2>
+                </g:each>
             </td>
         </tr>
     </g:each>
