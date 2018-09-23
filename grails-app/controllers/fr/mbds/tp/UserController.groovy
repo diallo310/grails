@@ -20,8 +20,7 @@ class UserController {
         respond userService.get(id)
     }
 
-   /* def downloadedfile = {request.getFile('file');
-    downloadedfile.transferTo(new File('C:/temp/upload')) }*/
+
     def create() {
         respond new User(params)
     }
@@ -33,10 +32,10 @@ class UserController {
         }
         println params.profileImage.getClass()
 
-        String imagename =  new Date().getTime() + '.jpg'
-        String filenae = 'C:/wamp64/www/img/' + imagename
+        String imagename =  user.username + '.jpg'
+        String filename = 'C:/wamp64/www/img/' + imagename
 
-        File imageFile = new File(filenae)
+        File imageFile = new File(filename)
         imageFile.createNewFile()
 
         params.profileImage.transferTo(imageFile)
@@ -115,4 +114,5 @@ class UserController {
     def role(){
         render userRoleService.list(params), model:[userRoleService: userRoleService.count()]
     }
+
 }
