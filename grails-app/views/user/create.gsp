@@ -6,10 +6,11 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
+    <g:render template="../navbar" model="[navbar: myNavBar]" />
         <a href="#create-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="nav" role="navigation">
             <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+                <li><a class="home" href="${createLink(uri: '/home')}"><g:message code="default.home.label"/></a></li>
                 <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
             </ul>
         </div>
@@ -27,9 +28,12 @@
             </g:hasErrors>
             <g:form resource="${this.user}" method="POST" enctype="multipart/form-data">
                 <fieldset class="form">
-                    <f:all bean="user"/>
-                </fieldset>
+                    <f:all bean="user" except="image"/>
 
+                <f:field property="authority" label="Role">
+                    <g:select optionKey="id" optionValue="authority" name="roles.authority" from="${roles}"/>
+                </f:field>
+                </fieldset>
                 <fieldset controller="user" about="">
                     <input type="file" name="profileImage"/>
                 </fieldset>

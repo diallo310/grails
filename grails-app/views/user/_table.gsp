@@ -4,6 +4,7 @@
         <th>Username</th>
         <th>Image</th>
         <th>Authorities</th>
+
     </tr>
     </thead>
     <tbody>
@@ -20,6 +21,8 @@
                     <h2>${role.authority}</h2>
                 </g:each>
             </td>
+
+
         </tr>
     </g:each>
     </tbody>
