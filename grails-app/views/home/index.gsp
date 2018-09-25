@@ -9,25 +9,7 @@
 
 
 <body>
-
-<content tag="nav">
-    <li class="dropdown">
-<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
-    <g:if  test= "${c.name != 'Login' && c.name !='Logout' }">
-        <li class="controller">
-            <g:link controller="${c.logicalPropertyName}">${c.name}</g:link>
-        </li>
-
-    </g:if>
-</g:each>
-
-</li>
-    <li class="dropdown">
-    <g:link controller="Logout">Logout</g:link>
-</li>
-</content>
-
-
+<g:render template="../navbar" model="[navbar: myNavBar]" />
 <div class="svg" role="presentation">
     <div class="grails-logo-container">
         <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
@@ -48,17 +30,7 @@
 
     </section>
 </div>
-<div class="footer">
-    <span id="footer-links">
-        <a target="_blank" href="http://grails.org/" class="footer-link">Grails.org</a> <span class="separator">•</span>
-        <a target="_blank" href="http://twitter.com/grailsframework" class="footer-link">Twitter</a>
-        <br>
-        <a target="_blank" href="http://github.com/grails/" class="footer-link">GitHub</a> <span class="separator">•</span>
-        <a target="_blank" href="http://grails.slack.com/" class="footer-link">Slack</a>
-        <br>
-        <a target="_blank" href="http://www.ociweb.com/" class="footer-link">OCI</a>
-    </span>
-</div>
+
 
 
 

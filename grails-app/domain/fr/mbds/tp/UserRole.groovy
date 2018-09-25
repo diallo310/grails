@@ -15,23 +15,33 @@ class UserRole implements Serializable {
 	User user
 	Role role
 
-	@Override
-	boolean equals(other) {
-		if (other instanceof UserRole) {
-			other.userId == user?.id && other.roleId == role?.id
-		}
+	boolean equals(o) {
+		if (this.is(o)) return true
+		if (getClass() != o.class) return false
+
+		UserRole userRole = (UserRole) o
+
+		if (org_grails_datastore_gorm_GormValidateable__skipValidate != userRole.org_grails_datastore_gorm_GormValidateable__skipValidate) return false
+		if (id != userRole.id) return false
+		if (org_grails_datastore_gorm_GormValidateable__errors != userRole.org_grails_datastore_gorm_GormValidateable__errors) return false
+		if (org_grails_datastore_mapping_dirty_checking_DirtyCheckable__$changedProperties != userRole.org_grails_datastore_mapping_dirty_checking_DirtyCheckable__$changedProperties) return false
+		if (role != userRole.role) return false
+		if (user != userRole.user) return false
+		if (version != userRole.version) return false
+
+		return true
 	}
 
-    @Override
 	int hashCode() {
-	    int hashCode = HashCodeHelper.initHash()
-        if (user) {
-            hashCode = HashCodeHelper.updateHash(hashCode, user.id)
-		}
-		if (role) {
-		    hashCode = HashCodeHelper.updateHash(hashCode, role.id)
-		}
-		hashCode
+		int result
+		result = (user != null ? user.hashCode() : 0)
+		result = 31 * result + (role != null ? role.hashCode() : 0)
+		result = 31 * result + (id != null ? id.hashCode() : 0)
+		result = 31 * result + (version != null ? version.hashCode() : 0)
+		result = 31 * result + (org_grails_datastore_mapping_dirty_checking_DirtyCheckable__$changedProperties != null ? org_grails_datastore_mapping_dirty_checking_DirtyCheckable__$changedProperties.hashCode() : 0)
+		result = 31 * result + (org_grails_datastore_gorm_GormValidateable__skipValidate ? 1 : 0)
+		result = 31 * result + (org_grails_datastore_gorm_GormValidateable__errors != null ? org_grails_datastore_gorm_GormValidateable__errors.hashCode() : 0)
+		return result
 	}
 
 	static UserRole get(long userId, long roleId) {

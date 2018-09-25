@@ -98,7 +98,7 @@ img {
 }
 
 .footer a {
-    color: #feb672;
+    color: #006dba;
 }
 
 .spinner {
@@ -567,7 +567,7 @@ a.skip {
 .grails-logo-container {
     background: #7c7c7c no-repeat 50% 30%;
     margin-bottom: 20px;
-    color: white;
+    color: #006dba;
     height:300px;
     text-align:center;
 }
