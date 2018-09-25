@@ -7,10 +7,10 @@ import java.nio.file.SecureDirectoryStream
 
 import static org.springframework.http.HttpStatus.*
 
-@Secured(['ROLE_ADMIN'])
 class MessageController {
 
     MessageService messageService
+    UserProfileService userProfileService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -27,25 +27,25 @@ class MessageController {
         respond new Message(params)
     }
 
-    def save(Message message) {
-        if (message == null) {
+    def save(Message msg) {
+        if (msg == null) {
             notFound()
             return
         }
 
         try {
-            messageService.save(message)
+            messageService.save(msg)
         } catch (ValidationException e) {
-            respond message.errors, view:'create'
+            respond msg.errors, view:'create'
             return
         }
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'message.label', default: 'Message'), message.id])
-                redirect message
+                flash.message = message(code: 'default.created.message', args: [message(code: 'msg.label', default: 'Message'), msg.id])
+                redirect msg
             }
-            '*' { respond message, [status: CREATED] }
+            '*' { respond msg, [status: CREATED] }
         }
     }
 
@@ -53,25 +53,25 @@ class MessageController {
         respond messageService.get(id)
     }
 
-    def update(Message message) {
-        if (message == null) {
+    def update(Message msg) {
+        if (msg == null) {
             notFound()
             return
         }
 
         try {
-            messageService.save(message)
+            messageService.save(msg)
         } catch (ValidationException e) {
-            respond message.errors, view:'edit'
+            respond msg.errors, view:'edit'
             return
         }
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'message.label', default: 'Message'), message.id])
-                redirect message
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'message.label', default: 'Message'), msg.id])
+                redirect msg
             }
-            '*'{ respond message, [status: OK] }
+            '*'{ respond msg, [status: OK] }
         }
     }
 
@@ -101,4 +101,10 @@ class MessageController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+    def UserProfile() {
+        User utilisateurCourant = userProfileService.getCurrentUser()
+        render view: '_table', model:[UserProfile: utilisateurCourant]
+    }
+
 }
