@@ -1,8 +1,11 @@
 package fr.mbds.tp
 
 import grails.plugin.springsecurity.annotation.Secured
+import grails.transaction.Transactional
 import grails.validation.ValidationException
-import static org.springframework.http.HttpStatus.*
+import org.hibernate.Transaction
+
+
 @Secured(['ROLE_ADMIN'])
 class UserController {
 
@@ -22,7 +25,10 @@ class UserController {
 
 
     def create() {
-        respond new User(params)
+       // respond new User(params)
+        def rolesU = Role.getAll()
+        render view: 'create', model: [user: new User(params), roles: Role.getAll().sort {-it.id}]
+
     }
 
     def save(User user) {
@@ -44,6 +50,9 @@ class UserController {
 
         try {
             userService.save(user)
+             // user.save flush:true
+              UserRole.create(user, Role.findById(params['roles.authority']), true)
+
         } catch (ValidationException e) {
             respond user.errors, view:'create'
             return
@@ -89,6 +98,22 @@ class UserController {
             notFound()
             return
         }
+
+
+        Collection<UserRole> userRoles = UserRole.findAllByUser(userService.get(id))
+        userRoles*.delete()
+
+        Collection<Match> winnedMatchs = Match.findAllByLooser(userService.get(id))
+        winnedMatchs*.delete()
+
+        Collection<Match> loosedMatchs = Match.findAllByWinner(userService.get(id))
+        loosedMatchs*.delete()
+
+        Collection<Message> sentMessages = Message.findAllByAuthor(userService.get(id))
+        sentMessages*.delete()
+
+        Collection<Message> receivedMessages = Message.findAllByTarget(userService.get(id))
+        receivedMessages*.delete()
 
         userService.delete(id)
 

@@ -3,7 +3,10 @@ package fr.mbds.tp
 import grails.converters.JSON
 import grails.converters.XML
 
+import java.sql.DriverManager
+
 class ApiController {
+
     UserService userService
 
     def user() {
@@ -57,6 +60,7 @@ class ApiController {
                     response.status=404
                 }
                 break
+
 
         }
 

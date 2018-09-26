@@ -28,9 +28,11 @@ class User implements Serializable {
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
         image nullable: true ,blank: false
+
     }
 
     static mapping = {
 	    password column: '`password`'
+
     }
 }
