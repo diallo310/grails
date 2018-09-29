@@ -29,8 +29,7 @@ class BootStrap {
 
         new Message(author: playerUser, target: playerTwoUser, content:"hello friend",isRead: false).save()
         new Message(author: playerTwoUser, target: playerUser ,
-                content:"hello friend hello hello hello hello" +
-                        "hello hello hello hello hello hello hello ",isRead: false).save()
+                content:"hello friend ",isRead: false).save()
     }
 
 
