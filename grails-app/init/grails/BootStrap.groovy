@@ -27,8 +27,10 @@ class BootStrap {
 
         def match = new Match(winner: playerUser, looser: playerTwoUser , winnerScore: 10, looserScore: 1).save()
 
-        new Message(author: playerUser, target: playerTwoUser, content:"hello friend").save()
-        new Message(author: playerTwoUser, target: playerUser , content:"hello friend").save()
+        new Message(author: playerUser, target: playerTwoUser, content:"hello friend",isRead: false).save()
+        new Message(author: playerTwoUser, target: playerUser ,
+                content:"hello friend hello hello hello hello" +
+                        "hello hello hello hello hello hello hello ",isRead: false).save()
     }
 
 

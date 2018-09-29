@@ -1,19 +1,20 @@
 package fr.mbds.tp
 
 import grails.converters.JSON
-import grails.converters.XML
-
-import java.sql.DriverManager
 
 class ApiController {
 
     UserService userService
+    MatchService matchService
+    MessageService messageService
 
     def user() {
         switch (request.getMethod()) {
             case "POST":
-                if (new User(request.JSON).save(flush: true)) {
-                    response.status = 200
+                User user = new User(request.JSON)
+                if (user.save(flush:true)){
+                    //userRoleDataService.role(user,request.JSON.role)
+                    response.status = 201
                 } else {
                     response.status = 404
                 }
@@ -60,10 +61,101 @@ class ApiController {
                     response.status=404
                 }
                 break
-
-
         }
 
+    }
+
+    def match(){
+        switch (request.getMethod()) {
+            case "GET":
+                if(params.id) {
+                    def match = matchService.get(params.id)
+                    if (match) {
+                        render match as JSON
+                    } else {
+                        //code erreur
+                    }
+                }else{
+                    def match = matchService.list(params)
+                    if(match){
+                        render match as JSON
+                    }else {
+                        //code  erreur
+                    }
+                }
+
+                break
+            case "PUT":
+                def match= matchService.get(request.JSON.id)
+                if(match){
+                    match.properties=request.JSON
+                    if(match.save(flush:true)){
+                        response.status=200
+                    }else{
+                        //code erreur
+                    }
+                }
+                else{
+                    //code erreur
+                }
+
+                break
+            case "DELETE":
+                break
+            case "POST":
+                break
+        }
+    }
+
+
+    def message(){
+        switch (request.getMethod()) {
+            case "GET":
+                if(params.id){
+                    def message = messageService.get(params.id)
+                    if(message){
+                        render message as JSON
+                    }
+                    else {
+                        //code erreur
+                    }
+                }else{
+                    def message = messageService.list(params)
+                    if(message){
+                        render message as JSON
+                    }
+                    else{
+                        //code erreur
+                    }
+                }
+
+                break
+            case "PUT":
+                def message = messageService.get(request.JSON.id)
+                if(message){
+                    message.properties=request.JSON
+                    if(message.save(flush:true)){
+                        render message as JSON
+                    }else{
+                        //code erreur
+                    }
+                }else{
+                    //code erreur
+                }
+                break
+            case "POST":
+                break
+            case "DELETE":
+
+                def message = messageService.get(request.JSON.id)
+                    if(message){
+                        messageService.delete(request.JSON.id)
+                        response.status=200
+                    }else{
+                        //code erreur
+                    }
+                break
+        }
     }
 
 }

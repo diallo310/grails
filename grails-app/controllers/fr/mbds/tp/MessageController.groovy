@@ -10,7 +10,7 @@ import static org.springframework.http.HttpStatus.*
 class MessageController {
 
     MessageService messageService
-    UserProfileService userProfileService
+//    UserProfileService userProfileService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -21,6 +21,13 @@ class MessageController {
 
     def show(Long id) {
         respond messageService.get(id)
+    }
+
+    def showMessageContent(Long id){
+        messageService.get(id).isRead=true
+        messageService.get(id).save(flush:true)
+        redirect(controller:"message",action:"index")
+
     }
 
     def create() {
