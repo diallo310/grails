@@ -14,7 +14,13 @@
                 <h2>${message.author.username}</h2>
             </td>
             <td>
-                <a href="${createLink(action: 'show', params: [id: message.id])}">${message.content}</a>
+                <a id="${message.id}" class="flagMessage" href="${createLink(action: 'showMessageContent', params: [id: message.id])}" >${message.content}</a>
+                <g:if test="${message.isRead == true}">
+                   <script>
+                       document.getElementById("${message.id}").style.color="black";
+                   </script>
+                </g:if>
+                <%-- <a href="${createLink(action: 'show', params: [id: message.id])}">${message.content}</a>--%>
             </td>
         </tr>
     </g:each>
