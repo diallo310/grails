@@ -1,18 +1,21 @@
 package fr.mbds.tp
 
-
+import grails.plugin.springsecurity.SpringSecurityService
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
 class HomeController {
 
     HomeService homeService
+    UserProfileService userProfileService
+
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond homeService.list(params), model:[homeCount: homeService.count()]
+        User utilisateurCourant = userProfileService.getCurrentUser()
+        respond homeService.list(params), model:[homeCount: homeService.count(), username:utilisateurCourant.username]
     }
 
     def show(Long id) {
