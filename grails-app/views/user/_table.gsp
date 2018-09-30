@@ -8,7 +8,9 @@
     </tr>
     </thead>
     <tbody>
+
     <g:each in="${userList}" var="user">
+        <g:if test="${user.enabled==true}">
         <tr>
             <td>
                 <a href="${createLink(action: 'show', params: [id: user.id])}">${user.username}</a>
@@ -21,9 +23,8 @@
                     <h2>${role.authority}</h2>
                 </g:each>
             </td>
-
-
         </tr>
+</g:if>
     </g:each>
     </tbody>
 </table>

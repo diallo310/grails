@@ -100,22 +100,10 @@ class UserController {
         }
 
 
-        Collection<UserRole> userRoles = UserRole.findAllByUser(userService.get(id))
-        userRoles*.delete()
-
-        Collection<Match> winnedMatchs = Match.findAllByLooser(userService.get(id))
-        winnedMatchs*.delete()
-
-        Collection<Match> loosedMatchs = Match.findAllByWinner(userService.get(id))
-        loosedMatchs*.delete()
-
-        Collection<Message> sentMessages = Message.findAllByAuthor(userService.get(id))
-        sentMessages*.delete()
-
-        Collection<Message> receivedMessages = Message.findAllByTarget(userService.get(id))
-        receivedMessages*.delete()
-
-        userService.delete(id)
+       
+        User user = userService.get(id)
+        user.setEnabled(false)
+        userService.save(user)
 
         request.withFormat {
             form multipartForm {
