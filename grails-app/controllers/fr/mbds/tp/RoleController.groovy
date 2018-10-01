@@ -6,12 +6,14 @@ import static org.springframework.http.HttpStatus.*
 class RoleController {
 
     RoleService roleService
+    UserProfileService userProfileService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond roleService.list(params), model:[roleCount: roleService.count()]
+        User utilisateurCourant = userProfileService.getCurrentUser()
+        respond roleService.list(params), model:[roleCount: roleService.count(), username:utilisateurCourant.username]
     }
 
     def show(Long id) {

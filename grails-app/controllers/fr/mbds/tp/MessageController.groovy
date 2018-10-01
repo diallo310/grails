@@ -1,22 +1,22 @@
 package fr.mbds.tp
 
-import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 
-import java.nio.file.SecureDirectoryStream
 
 import static org.springframework.http.HttpStatus.*
 
 class MessageController {
 
     MessageService messageService
-//    UserProfileService userProfileService
+    UserProfileService userProfileService
+    UserService userService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond messageService.list(params), model:[messageCount: messageService.count()]
+        User utilisateurCourant = userProfileService.getCurrentUser()
+        respond messageService.list(params), model:[messageCount: messageService.count(), username:utilisateurCourant.username]
     }
 
     def show(Long id) {
@@ -109,9 +109,5 @@ class MessageController {
         }
     }
 
-    def UserProfile() {
-        User utilisateurCourant = userProfileService.getCurrentUser()
-        render view: '_table', model:[UserProfile: utilisateurCourant]
-    }
 
 }

@@ -1,9 +1,9 @@
 package fr.mbds.tp
 
+
 import grails.plugin.springsecurity.annotation.Secured
-import grails.transaction.Transactional
 import grails.validation.ValidationException
-import org.hibernate.Transaction
+
 
 
 @Secured(['ROLE_ADMIN'])
@@ -11,12 +11,14 @@ class UserController {
 
     UserService userService
     UserRoleService userRoleService
+    UserProfileService userProfileService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond userService.list(params), model:[userCount: userService.count()]
+        User utilisateurCourant = userProfileService.getCurrentUser()
+        respond userService.list(params), model:[userCount: userService.count(), username:utilisateurCourant.username]
     }
 
     def show(Long id) {
@@ -100,22 +102,10 @@ class UserController {
         }
 
 
-        Collection<UserRole> userRoles = UserRole.findAllByUser(userService.get(id))
-        userRoles*.delete()
 
-        Collection<Match> winnedMatchs = Match.findAllByLooser(userService.get(id))
-        winnedMatchs*.delete()
-
-        Collection<Match> loosedMatchs = Match.findAllByWinner(userService.get(id))
-        loosedMatchs*.delete()
-
-        Collection<Message> sentMessages = Message.findAllByAuthor(userService.get(id))
-        sentMessages*.delete()
-
-        Collection<Message> receivedMessages = Message.findAllByTarget(userService.get(id))
-        receivedMessages*.delete()
-
-        userService.delete(id)
+        User user = userService.get(id)
+        user.setEnabled(false)
+        userService.save(user)
 
         request.withFormat {
             form multipartForm {

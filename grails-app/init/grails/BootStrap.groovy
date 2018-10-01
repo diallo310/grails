@@ -20,12 +20,20 @@ class BootStrap {
         def adminUser = new User(username: 'admin',image: 'admin.png',password: 'password').save()
         def playerUser = new User(username: 'playerUser',image: 'playerUser.png',password: 'playerUser').save()
         def playerTwoUser = new User(username: 'playerTwoUser',image: 'playerTwoUser.png',password: 'playerTwoUser').save()
+        def ines = new User(username: 'ines',image: '4.png',password: 'ines').save()
+        def hawaou = new User(username: 'hawaou',image: '3.png',password: 'hawaou').save()
 
         UserRole.create(adminUser,adminRole,true)
         UserRole.create(playerUser,gamingRole,true)
         UserRole.create(playerTwoUser,gamingRole,true)
+        UserRole.create(ines,gamingRole,true)
+
+        UserRole.create(hawaou,adminRole,true)
 
         def match = new Match(winner: playerUser, looser: playerTwoUser , winnerScore: 10, looserScore: 1).save()
+        def matchTUN = new Match(winner: ines, looser: hawaou , winnerScore: 9, looserScore: 5).save()
+        def matchAFR = new Match(winner: hawaou, looser: ines , winnerScore: 11, looserScore: 8).save()
+
 
         new Message(author: playerUser, target: playerTwoUser, content:"hello friend",isRead: false).save()
         new Message(author: playerTwoUser, target: playerUser ,
