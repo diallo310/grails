@@ -33,20 +33,20 @@ class ApiController {
                 break
             case "GET":
 
-                    if (params.id) {
-                        if (userService.get(params.id)) {
-                            render userService.get(params.id) as JSON
-                        } else {
-                            render(status: 404, 'Not Found')
-                        }
-
+                if (params.id) {
+                    if (userService.get(params.id)) {
+                        render userService.get(params.id) as JSON
                     } else {
-                        if (userService.list(params)) {
-                            render userService.list(params) as JSON
-                        } else {
-                            render(status: 404, 'Not Found')
-                        }
+                        render(status: 404, 'Not Found')
                     }
+
+                } else {
+                    if (userService.list(params)) {
+                        render userService.list(params) as JSON
+                    } else {
+                        render(status: 404, 'Not Found')
+                    }
+                }
                 break
             case "PUT":
                 def user = userService.get(request.JSON.id)
@@ -78,7 +78,7 @@ class ApiController {
 
     def match(){
         switch (request.getMethod()) {
-            // recuperation de tous les maths de l'utilisateur ayant l id
+        // recuperation de tous les maths de l'utilisateur ayant l id
             case "GET":
                 if(params.id) {
                     def match = matchService.get(params.id)
@@ -106,7 +106,7 @@ class ApiController {
                     }
                 }else{
                     response.status = 404
-                    }
+                }
                 break
 
             case "DELETE":
@@ -183,12 +183,12 @@ class ApiController {
             case "DELETE":
 
                 def message = messageService.get(request.JSON.id)
-                    if(message){
-                        messageService.delete(request.JSON.id)
-                        response.status=200
-                    }else{
-                        response.status = 404
-                    }
+                if(message){
+                    messageService.delete(request.JSON.id)
+                    response.status=200
+                }else{
+                    response.status = 404
+                }
                 break
         }
     }
