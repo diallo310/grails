@@ -19,7 +19,7 @@
                        document.getElementById("${message.id}").style.color="black";
                    </script>
                 </g:if>
-                <%-- <a href="${createLink(action: 'show', params: [id: message.id])}">${message.content}</a>--%>
+
             </td>
         </tr>
         </g:if>

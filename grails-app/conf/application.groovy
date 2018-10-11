@@ -8,7 +8,7 @@ grails.plugin.springsecurity.requestMap.className = 'fr.mbds.tp.UserRole'
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = 'http://localhost:8081/home/index'
 grails.plugin.springsecurity.securityConfigType = 'Annotation'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	[pattern: '/',             access: ['permitAll']],
+	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
 	[pattern: '/index',          access: ['permitAll']],
 	[pattern: '/index.gsp',      access: ['permitAll']],
@@ -18,23 +18,43 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/**/css/**',      access: ['permitAll']],
 	[pattern: '/**/images/**',   access: ['permitAll']],
 	[pattern: '/**/favicon.ico', access: ['permitAll']],
-	[pattern: '/api/login',          access: ['permitAll']],
-	[pattern: '/api/logout',        access: ['isFullyAuthenticated()']],
-	[pattern: '/**',             access: ['isFullyAuthenticated()']]
+	[pattern:  '/login/**',      access:['IS_AUTHENTICATED_ANONYMOUSLY']],
+	[pattern: '/**',             access: ['IS_AUTHENTICATED_FULLY']],
+	[pattern: '/api/**',         access: ['IS_AUTHENTICATED_FULLY']]
 ]
 
 
 grails.plugin.springsecurity.filterChain.chainMap = [
-		[pattern: '/api/**', filters:'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter'],
-		[pattern: '/**', filters:'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter']
+		//Stateless chain
+		[
+				pattern: '/api/**',
+				filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'
+		],
+
+		//Traditional chain
+		[
+				pattern: '/**',
+				filters: 'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter'
+		]
 ]
+
+//configuration spring security
+grails.plugin.springsecurity.rest.token.storage.jwt.useSignedJwt = true
+grails.plugin.springsecurity.rest.token.storage.jwt.secret = 'qrD6h8K6S9503Q06Y6Rfk21TErImPYqa'
+grails.plugin.springsecurity.rest.token.storage.jwt.expiration = 3600
+grails.plugin.springsecurity.rest.token.storage.jwt.useEncryptedJwt = false
+grails.plugin.springsecurity.rest.token.storage.jwt.privateKeyPath = null
+grails.plugin.springsecurity.rest.token.storage.jwt.publicKeyPath = null
+grails.plugin.springsecurity.rest.login.active = true
+grails.plugin.springsecurity.rest.login.endpointUrl = '/api/login'
+grails.plugin.springsecurity.rest.login.failureStatusCode = 401
 grails.plugin.springsecurity.rest.logout.endpointUrl = '/api/logout'
-grails.plugin.springsecurity.rest.token.validation.useBearerToken = false
+
+//token validate
+grails.plugin.springsecurity.rest.token.validation.useBearerToken = true
 grails.plugin.springsecurity.rest.token.validation.headerName = 'X-Auth-Token'
-grails.plugin.springsecurity.rest.token.storage.memcached.hosts = 'localhost:11211'
-grails.plugin.springsecurity.rest.token.storage.memcached.username = ''
-grails.plugin.springsecurity.rest.token.storage.memcached.password = ''
-grails.plugin.springsecurity.rest.token.storage.memcached.expiration = 86400
+grails.plugin.springsecurity.rest.token.validation.active=true
+grails.plugin.springsecurity.rest.token.validation.endpointUrl='/api/validate'
 
 
 grails.plugin.springsecurity.logout.postOnly = false
