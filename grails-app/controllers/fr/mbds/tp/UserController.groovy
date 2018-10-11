@@ -101,8 +101,6 @@ class UserController {
             return
         }
 
-
-
         User user = userService.get(id)
         user.setEnabled(false)
         userService.save(user)

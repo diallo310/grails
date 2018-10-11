@@ -16,8 +16,7 @@ class MessageDataService {
      def messageList=Message.getAll()
 
         messageList.each{
-            if(!it.isRead){
-                println(it)
+            if(it.isRead){
                 log.info "delete author= ${it.author.username} target = ${it.target.username} content= ${it.content} "+new SimpleDateFormat("dd/M/yyyy hh:mm:ss").format(new Date())
                 messageService.delete(it.id);
             }
