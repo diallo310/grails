@@ -12,23 +12,27 @@ class ApiController {
     def user() {
         switch (request.getMethod()) {
             case "POST":
-                String username = request.JSON.getAt("username").toString()
-                String password = request.JSON.getAt("password").toString()
-                String authority = request.JSON.getAt("authority").toString()
+                request.JSON.each { u ->
 
-                User user = User.findOrCreateByUsernameAndPassword(username, password).save(flush: true)
-                Role role = Role.findOrCreateByAuthority(authority).save(flush: true)
+                    String username = u.username
+                    String password = u.password
+                    String authority = u.authority
+                    String image = u.image
 
-                UserRole userRole = new UserRole(user: user, role: role)
+                    User user = User.findOrCreateByUsernameAndImageAndPassword(username,image,password).save(flush: true)
+                    Role role = Role.findOrCreateByAuthority(authority).save(flush: true)
 
-                if (userRole.save(flush: true)) {
-                    response.status = 201
-                } else {
-                    response.status = 500
+                    UserRole userRole = new UserRole(user: user, role: role)
+
+                    if (userRole.save(flush: true)) {
+                        response.status = 201
+                    } else {
+                        response.status = 400
+                    }
                 }
                 break
             case "GET":
-                
+
                     if (params.id) {
                         if (userService.get(params.id)) {
                             render userService.get(params.id) as JSON
@@ -47,6 +51,7 @@ class ApiController {
             case "PUT":
                 def user = userService.get(request.JSON.id)
                 if (user) {
+                    // on met à jour l'utisateur recuperer par rapport à l'id
                     user.properties = request.JSON
                     if (user.save(flush: true)) {
                         response.status = 200
@@ -58,6 +63,7 @@ class ApiController {
 
                 break
             case "DELETE":
+                // on supprime l'utilisateur ayant l'id recuperer
                 def user = userService.get(request.JSON.id)
                 if (user) {
                     user.enabled = false
@@ -72,6 +78,7 @@ class ApiController {
 
     def match(){
         switch (request.getMethod()) {
+            // recuperation de tous les maths de l'utilisateur ayant l id
             case "GET":
                 if(params.id) {
                     def match = matchService.get(params.id)
@@ -114,14 +121,10 @@ class ApiController {
                 }
                 break
             case "POST":
-              def match = new Match(params)
-                if(match.save(flush:true)){
+                if(new Match(request.JSON).save(flush: true)){
                     response.status = 201
                 }else{
                     response.status = 400
-                }
-                if(!match){
-                  response.status = 405
                 }
                 break
         }
@@ -131,6 +134,7 @@ class ApiController {
     def message(){
         switch (request.getMethod()) {
             case "GET":
+                // on recupere l'id de l'utilisateur on retourne ses messages
                 if(params.id){
                     def message = messageService.get(params.id)
                     if(message){
@@ -140,6 +144,7 @@ class ApiController {
                     else {
                         render(status: 404, 'Not Found')
                     }
+                    // on retourne tous les messages de la base de donnee
                 }else{
                     def message = messageService.list(params)
                     if(message){
@@ -168,17 +173,12 @@ class ApiController {
                 break
 
             case "POST":
-                def message = new Message(params)
-                if(message.save(flush:true)){
+                if(new Match(request.JSON).save(flush: true)){
                     response.status = 201
                 }else{
                     response.status = 400
                 }
-                if(!message){
-                    response.status = 405
-                }
                 break
-
 
             case "DELETE":
 
