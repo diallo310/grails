@@ -1,0 +1,105 @@
+{
+  "image": {
+    "name": null,
+    "format": "PS",
+    "formatDescription": "PostScript",
+    "mimeType": "application/postscript",
+    "class": "DirectClass",
+    "geometry": {
+      "width": 1299,
+      "height": 713,
+      "x": 0,
+      "y": 0
+    },
+    "units": "Undefined",
+    "type": "TrueColor",
+    "endianess": "Undefined",
+    "colorspace": "sRGB",
+    "depth": 8,
+    "baseDepth": 16,
+    "channelDepth": {
+      "red": 8,
+      "green": 8,
+      "blue": 8
+    },
+    "pixels": 926187,
+    "imageStatistics": {
+      "all": {
+        "min": "0",
+        "max": "65535",
+        "mean": "10129.7",
+        "standardDeviation": "9625.64",
+        "kurtosis": "18.2688",
+        "skewness": "4.10202"
+      }
+    },
+    "channelStatistics": {
+      "red": {
+        "min": "11565",
+        "max": "65535",
+        "mean": "13925.3",
+        "standardDeviation": "8778.11",
+        "kurtosis": "18.9503",
+        "skewness": "4.35594"
+      },
+      "green": {
+        "min": "0",
+        "max": "65535",
+        "mean": "5352.63",
+        "standardDeviation": "10764.7",
+        "kurtosis": "16.3279",
+        "skewness": "4.04252"
+      },
+      "blue": {
+        "min": "0",
+        "max": "65535",
+        "mean": "11111.1",
+        "standardDeviation": "9220.94",
+        "kurtosis": "20.7559",
+        "skewness": "4.55658"
+      }
+    },
+    "renderingIntent": "Perceptual",
+    "gamma": 0.454545,
+    "chromaticity": {
+      "redPrimary": {
+        "x": 0.64,
+        "y": 0.33
+      },
+      "greenPrimary": {
+        "x": 0.3,
+        "y": 0.6
+      },
+      "bluePrimary": {
+        "x": 0.15,
+        "y": 0.06
+      },
+      "whitePrimary": {
+        "x": 0.3127,
+        "y": 0.329
+      }
+    },
+    "backgroundColor": "#FFFFFFFFFFFF",
+    "borderColor": "#DFDFDFDFDFDF",
+    "matteColor": "#BDBDBDBDBDBD",
+    "transparentColor": "#000000000000",
+    "interlace": "None",
+    "intensity": "Undefined",
+    "compose": "Over",
+    "dispose": "Undefined",
+    "iterations": 0,
+    "compression": "Undefined",
+    "quality": 85,
+    "orientation": "Undefined",
+    "properties": {
+      "signature": "4f850fea67ff89f9d05fb80bd6f98061ec4d29617996fae93d4baef4c8fad70c"
+    },
+    "tainted": true,
+    "filesize": "0B",
+    "numberPixels": "926K",
+    "pixelsPerSecond": "18.52MB",
+    "userTime": "0.040u",
+    "elapsedTime": "0:01.050",
+    "version": "ImageMagick 6.9.7-4 Q16 x86_64 20170114 http://www.imagemagick.org"
+  }
+}

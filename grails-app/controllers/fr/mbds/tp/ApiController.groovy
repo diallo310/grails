@@ -12,45 +12,46 @@ class ApiController {
     def user() {
         switch (request.getMethod()) {
             case "POST":
-                String username = request.JSON.getAt("username").toString()
-                String password = request.JSON.getAt("password").toString()
-                String image = request.JSON.getAt("image").toString()
-                String authority = request.JSON.getAt("authority").toString()
+                request.JSON.each { u ->
 
-                User user = User.findOrCreateByUsernameAndImageAndPassword(username,image,password).save(flush: true)
-                Role role = Role.findOrCreateByAuthority(authority).save(flush: true)
+                    String username = u.username
+                    String password = u.password
+                    String authority = u.authority
+                    String image = u.image
 
-                UserRole userRole = new UserRole(user: user, role: role)
+                    User user = User.findOrCreateByUsernameAndImageAndPassword(username,image,password).save(flush: true)
+                    Role role = Role.findOrCreateByAuthority(authority).save(flush: true)
 
-                if (userRole.save(flush: true)) {
-                    response.status = 201
-                } else {
-                    response.status = 500
+                    UserRole userRole = new UserRole(user: user, role: role)
+
+                    if (userRole.save(flush: true)) {
+                        response.status = 201
+                    } else {
+                        response.status = 400
+                    }
                 }
                 break
             case "GET":
 
-                    if (params.id) {
-                        if (userService.get(params.id)) {
-                            render userService.get(params.id) as JSON
-                        } else {
-                            render(status: 404, 'Not Found')
-                        }
-
+                if (params.id) {
+                    if (userService.get(params.id)) {
+                        render userService.get(params.id) as JSON
                     } else {
-                        if (userService.list(params)) {
-                            if(userService.getProperties("enabled",true)){
-                                render userService.list(params) as JSON
-                            }
-
-                        } else {
-                            render(status: 404, 'Not Found')
-                        }
+                        render(status: 404, 'Not Found')
                     }
+
+                } else {
+                    if (userService.list(params)) {
+                        render userService.list(params) as JSON
+                    } else {
+                        render(status: 404, 'Not Found')
+                    }
+                }
                 break
             case "PUT":
                 def user = userService.get(request.JSON.id)
                 if (user) {
+                    // on met à jour l'utisateur recuperer par rapport à l'id
                     user.properties = request.JSON
                     if (user.save(flush: true)) {
                         response.status = 200
@@ -62,6 +63,7 @@ class ApiController {
 
                 break
             case "DELETE":
+                // on supprime l'utilisateur ayant l'id recuperer
                 def user = userService.get(request.JSON.id)
                 if (user) {
                     user.enabled = false
@@ -76,6 +78,7 @@ class ApiController {
 
     def match(){
         switch (request.getMethod()) {
+        // recuperation de tous les maths de l'utilisateur ayant l id
             case "GET":
                 if(params.id) {
                     def match = matchService.get(params.id)
@@ -103,9 +106,20 @@ class ApiController {
                     }
                 }else{
                     response.status = 404
-                    }
+                }
                 break
 
+            case "DELETE":
+                def match = matchService.get(request.JSON.id)
+                if (match) {
+                    matchService.delete(request.JSON.id)
+                    if (request.JSON.id) {
+                        response.status = 200
+                    }
+                } else {
+                    response.status = 404
+                }
+                break
             case "POST":
                 if(new Match(request.JSON).save(flush: true)){
                     response.status = 201
@@ -113,17 +127,6 @@ class ApiController {
                     response.status = 400
                 }
                 break
-
-            case "DELETE":
-                def match = matchService.get(request.JSON.id)
-                if(match){
-                    matchService.delete(request.JSON.id)
-                    response.status=200
-                }else{
-                    response.status = 404
-                }
-                break
-
         }
     }
 
@@ -131,6 +134,7 @@ class ApiController {
     def message(){
         switch (request.getMethod()) {
             case "GET":
+                // on recupere l'id de l'utilisateur on retourne ses messages
                 if(params.id){
                     def message = messageService.get(params.id)
                     if(message){
@@ -140,6 +144,7 @@ class ApiController {
                     else {
                         render(status: 404, 'Not Found')
                     }
+                    // on retourne tous les messages de la base de donnee
                 }else{
                     def message = messageService.list(params)
                     if(message){
@@ -154,36 +159,36 @@ class ApiController {
 
             case "PUT":
                 def message = messageService.get(request.JSON.id)
-
-                if (message) {
+                if(message){
                     message.properties=request.JSON
-                    if (message.save(flush: true)) {
+                    if(message.save(flush:true)){
+                        render message as JSON
                         response.status = 200
+                    }else{
+                        response.status = 404
                     }
-                } else {
-                    response.status = 404
+                }else{
+                    response.status = 405
                 }
-            break
+                break
 
             case "POST":
-
-                if(new Message(request.JSON).save(flush: true)){
+                if(new Match(request.JSON).save(flush: true)){
                     response.status = 201
                 }else{
                     response.status = 400
                 }
-
                 break
 
             case "DELETE":
 
                 def message = messageService.get(request.JSON.id)
-                    if(message){
-                        messageService.delete(request.JSON.id)
-                        response.status=200
-                    }else{
-                        response.status = 404
-                    }
+                if(message){
+                    messageService.delete(request.JSON.id)
+                    response.status=200
+                }else{
+                    response.status = 404
+                }
                 break
         }
     }
