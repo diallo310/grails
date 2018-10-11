@@ -14,9 +14,10 @@ class ApiController {
             case "POST":
                 String username = request.JSON.getAt("username").toString()
                 String password = request.JSON.getAt("password").toString()
+                String image = request.JSON.getAt("image").toString()
                 String authority = request.JSON.getAt("authority").toString()
 
-                User user = User.findOrCreateByUsernameAndPassword(username, password).save(flush: true)
+                User user = User.findOrCreateByUsernameAndImageAndPassword(username,image,password).save(flush: true)
                 Role role = Role.findOrCreateByAuthority(authority).save(flush: true)
 
                 UserRole userRole = new UserRole(user: user, role: role)
@@ -28,7 +29,7 @@ class ApiController {
                 }
                 break
             case "GET":
-                
+
                     if (params.id) {
                         if (userService.get(params.id)) {
                             render userService.get(params.id) as JSON
@@ -38,7 +39,10 @@ class ApiController {
 
                     } else {
                         if (userService.list(params)) {
-                            render userService.list(params) as JSON
+                            if(userService.getProperties("enabled",true)){
+                                render userService.list(params) as JSON
+                            }
+
                         } else {
                             render(status: 404, 'Not Found')
                         }
@@ -102,28 +106,24 @@ class ApiController {
                     }
                 break
 
-            case "DELETE":
-                def match = matchService.get(request.JSON.id)
-                if (match) {
-                    matchService.delete(request.JSON.id)
-                    if (request.JSON.id) {
-                        response.status = 200
-                    }
-                } else {
-                    response.status = 404
-                }
-                break
             case "POST":
-              def match = new Match(params)
-                if(match.save(flush:true)){
+                if(new Match(request.JSON).save(flush: true)){
                     response.status = 201
                 }else{
                     response.status = 400
                 }
-                if(!match){
-                  response.status = 405
+                break
+
+            case "DELETE":
+                def match = matchService.get(request.JSON.id)
+                if(match){
+                    matchService.delete(request.JSON.id)
+                    response.status=200
+                }else{
+                    response.status = 404
                 }
                 break
+
         }
     }
 
@@ -154,31 +154,26 @@ class ApiController {
 
             case "PUT":
                 def message = messageService.get(request.JSON.id)
-                if(message){
+
+                if (message) {
                     message.properties=request.JSON
-                    if(message.save(flush:true)){
-                        render message as JSON
+                    if (message.save(flush: true)) {
                         response.status = 200
-                    }else{
-                        response.status = 404
                     }
-                }else{
-                    response.status = 405
+                } else {
+                    response.status = 404
                 }
-                break
+            break
 
             case "POST":
-                def message = new Message(params)
-                if(message.save(flush:true)){
+
+                if(new Message(request.JSON).save(flush: true)){
                     response.status = 201
                 }else{
                     response.status = 400
                 }
-                if(!message){
-                    response.status = 405
-                }
-                break
 
+                break
 
             case "DELETE":
 

@@ -18,6 +18,7 @@ class MatchController {
     }
 
     def show(Long id) {
+
         respond matchService.get(id)
     }
 
