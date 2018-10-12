@@ -20,7 +20,7 @@
                 ${user.username}
             </td>
             <td>
-                <img src="${"http://localhost/img/" + user.image}"/>
+                <img src="${"http://localhost:8080/img/" + user.image}"/>
             </td>
             <td>
                 <g:each in="${user.getAuthorities()}" var="role">
