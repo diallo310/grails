@@ -44,9 +44,12 @@ pre {
 
 }
 .navbar-default, .navbar-static-top {
-    background-color: #424649;
+    background-color: darkblue;
     border: 0px;
 }
+
+
+
 a.navbar-brand {
     color: white !important;
     font-size: 19px !important;
@@ -1052,6 +1055,7 @@ html, body, .st-container, .st-pusher, .st-content {
 
 .presentations .urls {
 }
+
 
 @media screen and (max-width: 767px) {
     .presentations .img.screenshot, .video .metadata {
