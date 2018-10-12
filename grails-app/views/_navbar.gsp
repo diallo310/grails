@@ -15,7 +15,7 @@
 
 
 <li class="navbar-brand">
-    <h1 style="color:blue;">Bonjour ${username}</h1>
+    <h1>Bonjour ${username}</h1>
 </li>
 
     <li class="button">
