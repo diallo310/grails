@@ -1,0 +1,180 @@
+{
+	"info": {
+		"name": "GRAILS TEST",
+		"_postman_id": "5aa37327-9182-00d0-2e9f-b4d717ec56ea",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Entities",
+			"description": "Ce dossier entities contient les entités du projet Grails :\n+User\n+Match\n+Message",
+			"item": [
+				{
+					"name": "Match",
+					"description": "Ce dossier contient les tests de l'entité Match",
+					"item": [],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Message",
+					"description": "Ce dossier contient les tests de l'entité Message",
+					"item": [],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "User",
+					"description": "Ce dossier contient les tests de l'entité User",
+					"item": [
+						{
+							"name": "http://localhost:8081/api/user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											" \r",
+											"var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");\r",
+											" \r",
+											"tests[\"Has Content-Type\"] = contentTypeHeaderExists;\r",
+											" \r",
+											"if (contentTypeHeaderExists) {\r",
+											" tests[\"Content-Type is application/json\"] =\r",
+											" responseHeaders[\"Content-Type\"].has(\"application/json\");\r",
+											" }\r",
+											" tests[\"Response Body matches string SUCCESS\"] = responseBody.has(\"SUCCESS\");\r",
+											" \r",
+											""
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											" postman.setEnvironmentVariable(\"username\", \"User\");\r",
+											" postman.setEnvironmentVariable(\"password\", \"test\");\r",
+											" postman.setEnvironmentVariable(\"image\", \"3.png\");\r",
+											" postman.setEnvironmentVariable(\"authority\", \"ROLE_ADMIN\");"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5MzU1NDIwLCJpYXQiOjE1MzkzNTE4MjB9.LInLh_cKPgNGcDLCW9iG_m9JAsqIkmkJ3fPUr1qt4CI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"TestREST\",\n        \"password\": \"test\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Login",
+					"description": "Ce dossier coontient le test de l'authentification",
+					"item": [
+						{
+							"name": "http://localhost:8081/api/login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Response contains access_token\"] = responseBody.has(\"access_token\");",
+											"tests[\"Response contains refresh_token\"] = responseBody.has(\"refresh_token\");",
+											"",
+											"var responseJSON;",
+											"",
+											"try { responseJSON = JSON.parse(responseBody); }",
+											"catch(e) {}",
+											"",
+											"postman.setGlobalVariable(\"access_token\",responseJSON.access_token);",
+											"postman.setGlobalVariable(\"refresh_token\",responseJSON.refresh_token);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var timeInSeconds = parseInt((new Date()).getTime() / 1000);\r",
+											"var sigString = environment.apiKey + environment.secretKey + timeInSeconds\r",
+											"var token = CryptoJS.SHA256(sigString);\r",
+											"postman.setEnvironmentVariable(\"token\", token);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"username\": \"admin\",\r\n\"password\": \"password\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"login"
+									]
+								},
+								"description": "C'est la  requète d'authentification"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}
