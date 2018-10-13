@@ -1231,9 +1231,10 @@
 											"\r",
 											"console.info();\r",
 											"\r",
-											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"tests[\"Status code is 403\"] = responseCode.code === 403;\r",
 											"\r",
-											"tests[\"Response Body matches Message bien supprimé\"] = responseBody.has(\"Message bien supprimé\");\r",
+											"tests[\"Response Body matches Access is denied\"] = responseBody.has(\"Access is denied\");\r",
+											" \r",
 											""
 										]
 									}
