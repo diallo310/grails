@@ -94,12 +94,12 @@ L’entité Message est composée des attributs suivants
 Nous avons utilisé une collection Postman. Pour chaque ressource, nous avons créé plusieurs scénarios pour les différentes réponses http possibles.
 
 **Bonus**
-Utilisation de Spring Security et son extension pour la mise en place dans le cadre d’une API REST : nous avons importé les deux plugins spring-security-core et spring-security-rest dans le fichier build.gradle. Après nous avons configuré à la main les accès aux différents services des ressources exposées dans le fichier application.groovy
-``
-compile "org.grails.plugins:spring-security-core:3.2.3"
+Utilisation de Spring Security et son extension pour la mise en place dans le cadre d’une API REST : nous avons importé les deux plugins **spring-security-core** et **spring-security-rest** dans le fichier **build.gradle**. Après nous avons configuré à la main les accès aux différents services des ressources exposées dans le fichier **application.groovy**.
 
+```
+compile "org.grails.plugins:spring-security-core:3.2.3"
 compile "org.grails.plugins:spring-security-rest:2.0.0.RC1"
-``
+```
 
 
 
