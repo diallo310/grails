@@ -50,9 +50,9 @@ Pour la réalisation de notre projet nous avons implémenté deux type de rôle:
 
 Cron fonctionnel pour purger les messages, toutes les nuits à 4h du matin.(class JobMessageService,MessageDataService)
 
-
-
 **Modèle de données en fonction des contraintes et besoins du TP**
+
+![Modèle de données en fonction des contraintes et besoins du TP](/Documentation/Images/Modele_Donnees.png)
 
 
 
@@ -60,9 +60,11 @@ Cron fonctionnel pour purger les messages, toutes les nuits à 4h du matin.(clas
 
 ![Ressource User](/Documentation/Images/Ressource_User.png)
 
-![Ressource User](/Documentation/Images/Ressource_Message.png)
 
-![Ressource User](/Documentation/Images/Ressource_Match.png)
+![Ressource Message](/Documentation/Images/Ressource_Message.png)
+
+
+![Ressource Match](/Documentation/Images/Ressource_Match.png)
 
 
 
