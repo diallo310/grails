@@ -27,17 +27,17 @@ class BootStrap {
         UserRole.create(playerUser,gamingRole,true)
         UserRole.create(playerTwoUser,gamingRole,true)
         UserRole.create(ines,gamingRole,true)
-
         UserRole.create(hawaou,adminRole,true)
 
-        def match = new Match(winner: playerUser, looser: playerTwoUser , winnerScore: 10, looserScore: 1).save()
-        def matchTUN = new Match(winner: ines, looser: hawaou , winnerScore: 9, looserScore: 5).save()
-        def matchAFR = new Match(winner: hawaou, looser: ines , winnerScore: 11, looserScore: 8).save()
+        new Match(winner: playerUser, looser: playerTwoUser , winnerScore: 10, looserScore: 1).save()
+        new Match(winner: ines, looser: hawaou , winnerScore: 9, looserScore: 5).save()
+        new Match(winner: hawaou, looser: ines , winnerScore: 11, looserScore: 8).save()
 
 
         new Message(author: playerUser, target: playerTwoUser, content:"hello friend",isRead: false).save()
-        new Message(author: playerTwoUser, target: playerUser ,
-                content:"hello friend ",isRead: false).save()
+        new Message(author: playerTwoUser, target: playerUser , content:"hello friend ",isRead: false).save()
+        new Message(author: hawaou, target: ines, content:"hello ines",isRead: false).save()
+        new Message(author: ines, target:hawaou , content:"hello friend ",isRead: false).save()
     }
 
 
