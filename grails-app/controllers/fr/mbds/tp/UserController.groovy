@@ -38,12 +38,17 @@ class UserController {
         println params.profileImage.getClass()
 
         String imagename =  user.username + '.jpg'
-        String filename = 'C:/wamp64/www/img/' + imagename
+        String filename = '/var/www/html/img/' + imagename
 
         File imageFile = new File(filename)
-        imageFile.createNewFile()
 
-        params.profileImage.transferTo(imageFile)
+        try{
+            imageFile.createNewFile()
+            params.profileImage.transferTo(imageFile)
+        }
+        catch(IOException ex){
+            System.out.println("Could not find file " );
+        }
 
         user.image = imagename
 

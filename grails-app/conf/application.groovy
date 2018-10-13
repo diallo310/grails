@@ -29,7 +29,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/user/show/**',access: ['permitAll']],
 	[pattern: '/match/edit',access: ['ROLE_ADMIN']],
 	[pattern: '/match/delete',access: ['ROLE_ADMIN']],
-	[pattern: '/mesage/index',access: ['permitAll']],
+	[pattern: '/message/index',access: ['permitAll']],
 	[pattern: '/message/show/**',access: ['permitAll']],
 	[pattern: '/message/edit',access: ['ROLE_ADMIN']],
 	[pattern: '/message/delete',access: ['ROLE_ADMIN']]

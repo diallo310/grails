@@ -12,6 +12,7 @@ class ApiController {
     def user() {
         switch (request.getMethod()) {
             case "POST":
+
                 int numberOfUsersAdded = 0
                 request.JSON.each { u ->
                     String username = u.username
@@ -28,6 +29,9 @@ class ApiController {
                         numberOfUsersAdded++
                     }
                 }
+                if(!userRole.save(flush:true)){
+                    render(status: 401, 'Veuillez vérifier votre "access Token"')
+                }
                 if (numberOfUsersAdded == 1) {
                     render(status: 201, 'Utilisateur bien ajouté')
                 } else if (numberOfUsersAdded > 1) {
@@ -35,9 +39,9 @@ class ApiController {
                     render(status: 201, message)
                 } else if(numberOfUsersAdded < 1) {
                     render(status: 400, "Erreur dans l'ajout de l'utilisateur")
-                }else {
-                    render(status: 401, 'Veuillez vérifier votre "access Token"')
                 }
+
+
 
 
                 break
