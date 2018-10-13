@@ -14,21 +14,14 @@ Sujet : [Création d’une plateforme de gestion de joueurs et résultats](http:
 
 **Comptes:**
 
-- **Administrateur**
-  - username : admin
-  - password: password
-- **Joueur 1**
-  - username: ines
-  - password: ines
-- **Joueur 2**
-  - username: hawaou
-  - password: hawaou
-- **Joueur 3**
-  - username: playerUser
-  - password: playerUser
-- **Joueur 4**
-  - username: playerTwoUser
-  - password: playerTwoUser
+------ | Username | Password
+--------------- | ---------- | -------------
+**Administrateur** | admin | password
+**Joueur 1** | ines | ines
+**Joueur 2** | hawaou | hawaou
+**Joueur 3** | playerUser | playerUser
+**Joueur 4** | playerTwoUser | playerTwoUser
+
 
 
 Pour la réalisation de notre projet nous avons implémenté deux type de rôle:
