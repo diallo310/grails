@@ -58,5 +58,11 @@ Cron fonctionnel pour purger les messages, toutes les nuits à 4h du matin.(clas
 
 # Projet REST
 
+![Ressource User](/Documentation/Images/Ressource_User.png)
+
+![Ressource User](/Documentation/Images/Ressource_Message.png)
+
+![Ressource User](/Documentation/Images/Ressource_Match.png)
+
 
 
