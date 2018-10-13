@@ -8,7 +8,7 @@ grails.plugin.springsecurity.requestMap.className = 'fr.mbds.tp.UserRole'
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = 'http://localhost:8081/home/index'
 grails.plugin.springsecurity.securityConfigType = 'Annotation'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	[pattern: '/',               access: ['permitAll']],
+	[pattern: '/login/auth/**',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
 	[pattern: '/index',          access: ['permitAll']],
 	[pattern: '/index.gsp',      access: ['permitAll']],
@@ -20,7 +20,23 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/**/favicon.ico', access: ['permitAll']],
 	[pattern:  '/login/**',      access:['IS_AUTHENTICATED_ANONYMOUSLY']],
 	[pattern: '/**',             access: ['IS_AUTHENTICATED_FULLY']],
-	[pattern: '/api/**',         access: ['IS_AUTHENTICATED_FULLY']]
+	//[pattern: '/api/**',         access: ['IS_AUTHENTICATED_FULLY']],
+	[pattern: '/api/user',         access: ['ROLE_ADMIN']],
+	[pattern: '/api/match',         access: ['ROLE_ADMIN']],
+	[pattern: '/api/message',         access: ['IS_AUTHENTICATED_FULLY']],
+	[pattern: '/match/index',access: ['permitAll']],
+	[pattern: '/match/show/**',access: ['permitAll']],
+	[pattern: '/match/edit',access: ['ROLE_ADMIN']],
+	[pattern: '/match/delete',access: ['ROLE_ADMIN']],
+	[pattern: '/user/index',access: ['ROLE_ADMIN']],
+	[pattern: '/user/show/**',access: ['permitAll']],
+	[pattern: '/user/create/**',access: ['ROLE_ADMIN']],
+	[pattern: '/match/edit',access: ['ROLE_ADMIN']],
+	[pattern: '/match/delete',access: ['ROLE_ADMIN']],
+	[pattern: '/message/index',access: ['permitAll']],
+	[pattern: '/message/show/**',access: ['permitAll']],
+	[pattern: '/message/edit',access: ['ROLE_ADMIN']],
+	[pattern: '/message/delete',access: ['ROLE_ADMIN']]
 ]
 
 

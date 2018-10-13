@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat
 @CompileStatic
 class MessageDataService {
 
+    UserProfileService userProfileService
+
     MessageService messageService
 
     def delete(Map params) {
@@ -21,6 +23,7 @@ class MessageDataService {
                 messageService.delete(it.id);
             }
         }
-
     }
+
+
 }

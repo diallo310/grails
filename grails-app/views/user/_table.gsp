@@ -4,6 +4,10 @@
         <th>Username</th>
         <th>Image</th>
         <th>Authorities</th>
+        <th>Show Detail</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
 
     </tr>
     </thead>
@@ -13,16 +17,34 @@
         <g:if test="${user.enabled==true}">
         <tr>
             <td>
-                <a href="${createLink(action: 'show', params: [id: user.id])}">${user.username}</a>
+               ${user.username}
             </td>
             <td>
-                <img src="${"http://localhost:8080/img/" + user.image}"/>
+
+                <img class ="pictureProfile" src="${"http://localhost:8080/img/" + user.image}"/>
+
             </td>
             <td>
                 <g:each in="${user.getAuthorities()}" var="role">
-                    <h2>${role.authority}</h2>
+                    ${role.authority}
                 </g:each>
             </td>
+
+            <td><a href="${createLink(action: 'show', params: [id: user.id])}"><img class ="pictureIcon" src="/assets/vue1.png" class ="pictureIcon" alt="Show"></a></td>
+            <td>
+                    <fieldset class="buttons">
+                        <g:link class="edit" action="edit" resource="${user}"></g:link>
+                    </fieldset>
+            </td>
+            <td>
+                <g:form resource="${user}" method="DELETE">
+                    <fieldset class="buttons">
+                        <input class="delete" type="submit" value="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                    </fieldset>
+                </g:form>
+            </td>
+
+
         </tr>
 </g:if>
     </g:each>

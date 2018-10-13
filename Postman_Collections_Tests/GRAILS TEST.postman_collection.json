@@ -1,0 +1,2272 @@
+{
+	"info": {
+		"name": "GRAILS TEST",
+		"_postman_id": "5aa37327-9182-00d0-2e9f-b4d717ec56ea",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Entities",
+			"description": "Ce dossier entities contient les entités du projet Grails :\n+User\n+Match\n+Message",
+			"item": [
+				{
+					"name": "Match",
+					"description": "Ce dossier contient les tests de l'entité Match",
+					"item": [
+						{
+							"name": "Test Ajout match par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Ajout match par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 201\"] = responseCode.code === 201;\r",
+											"\r",
+											"tests[\"Response Body matches string Match bien ajouté\"] = responseBody.has(\"Match bien ajouté\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDYxOTA1LCJpYXQiOjE1Mzk0NTgzMDV9.xVCCuiKm3XBq9XZTeXrupvi6x_FRG2ycBg107uAsqM0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 3,\n    \"winnerScore\": 10,\n    \"looserScore\": 1,\n    \"winner\": {\n        \"id\": 2\n    },\n    \"looser\": {\n        \"id\": 3\n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/match",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"match"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						},
+						{
+							"name": "Test Ajout match par un Utilisateur",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Ajout match par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 403\"] = responseCode.code === 403;\r",
+											"\r",
+											"tests[\"Response Body matches string Access is denied\"] = responseBody.has(\"Access is denied\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTTVU4Yk1SUitseDZpRlJLRlNxM1VBWmJTcmJwSVpjeFVvb0JVbmFBaXpSS2tJdWZ1Y1JoODl0WDJRYkpVbWRvaFE2cTJTRWhkT1wvSlBZT2tQcUdCZ3pjeks4eEc0dEF1cUpcL3Y1OFwvZDk3M3MrR2NHVTBiQ2NhTWFGQ1RLUkoxd0dKdE5jSmdhalhIUGJDM0tET2taYklOWUtZSXNxY0xPOENuZ2hWSGhzNFVtNHh3NVlWVENaVkRjNmV4alpXbGZEYTZXVE1lT09aaWtlS3IwZjNIRkhTdU5mQWlXMTk2c0MwMjJZWjFHa2NtblhsV3gwTTY0eGJzTmNXUXRWdE85S1R5TzZRV2s1RTJZU09vMlNkUVRHSWN5dzNPNHFVdVZvTER5K01adGJMcXBOdExVUUhtYk1HSEwzVHlkTjY2eTdlMmRUVWdjZjRSUDQzY3lqUmRtOWROREE4UVIxSlFSMXpaVTBTeTJacXBqdmNDZE9cL1AyRmI3K0hQXC91dENnQmw4dXIrTjJYOStRcjBUejljTFJaQmU1R0ZaeFBXUzFpdG01R2IrWkw1dlVhblwvT2Y0M2ZlajBaZXRCNlRzRUt2XC9QNCtsTitQa2VuV1Zaa3d6cXlabVJMU0h2dHNUK2NyOTVMZFQ2QVZObm1ZQzZVZEppXC9HZFJFbE03ZnBhaWR1OExUemEzQWdiMjYxbVk5T2RmQzdSa09aczBiS2JWUkFxbXRUZzh1dlo4TVU1dlg4TFV3ZE01RWlKejVXZzlUenRvUDU4Y3JRdzgrTmlVUGdmXC8yWFwvR3M0V205a1BBd0FBIiwic3ViIjoiaW5lcyIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDYxOTk0LCJpYXQiOjE1Mzk0NTgzOTR9.EO83ENtHsP0q0cD6xMioJIwnCWZv-rqb0UGkU-cOxVo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 4,\n    \"winnerScore\": 10,\n    \"looserScore\": 1,\n    \"winner\": {\n        \"id\": 2\n    },\n    \"looser\": {\n        \"id\": 3\n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/match",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"match"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Get Match par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Get match par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"tests[\"Response Body matches id\"] = responseBody.has(\"id\");\r",
+											"tests[\"Response Body matches winnerScore\"] = responseBody.has(\"winnerScore\");\r",
+											"tests[\"Response Body matches looserScore\"] = responseBody.has(\"looserScore\");\r",
+											"tests[\"Response Body matches winner\"] = responseBody.has(\"winner\");\r",
+											"tests[\"Response Body matches looser\"] = responseBody.has(\"looser\");\r",
+											"\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDYxOTA1LCJpYXQiOjE1Mzk0NTgzMDV9.xVCCuiKm3XBq9XZTeXrupvi6x_FRG2ycBg107uAsqM0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_1\",\n        \"password\": \"Player_1\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/match/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"match",
+										"1"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Get liste Match par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Get liste match par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"tests[\"Response Body matches id\"] = responseBody.has(\"id\");\r",
+											"tests[\"Response Body matches winnerScore\"] = responseBody.has(\"winnerScore\");\r",
+											"tests[\"Response Body matches looserScore\"] = responseBody.has(\"looserScore\");\r",
+											"tests[\"Response Body matches winner\"] = responseBody.has(\"winner\");\r",
+											"tests[\"Response Body matches looser\"] = responseBody.has(\"looser\");\r",
+											"\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU5NTEzLCJpYXQiOjE1Mzk0NTU5MTN9.-n54Fh-H7iLS1md4D37ucrKMZAC0HFMNZ7e6_TCPFk8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_1\",\n        \"password\": \"Player_1\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/match",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"match"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						},
+						{
+							"name": "Test Get Match par un User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Get match par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 403\"] = responseCode.code === 403;\r",
+											"\r",
+											"tests[\"Response Body matches string Access is denied\"] = responseBody.has(\"Access is denied\");"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTTVU4Yk1SUitseDZpRlJLRlNxM1VBWmJTcmJwSVpjeFVvb0JVbmFBaXpSS2tJdWZ1Y1JoODl0WDJRYkpVbWRvaFE2cTJTRWhkT1wvSlBZT2tQcUdCZ3pjeks4eEc0dEF1cUpcL3Y1OFwvZDk3M3MrR2NHVTBiQ2NhTWFGQ1RLUkoxd0dKdE5jSmdhalhIUGJDM0tET2taYklOWUtZSXNxY0xPOENuZ2hWSGhzNFVtNHh3NVlWVENaVkRjNmV4alpXbGZEYTZXVE1lT09aaWtlS3IwZjNIRkhTdU5mQWlXMTk2c0MwMjJZWjFHa2NtblhsV3gwTTY0eGJzTmNXUXRWdE85S1R5TzZRV2s1RTJZU09vMlNkUVRHSWN5dzNPNHFVdVZvTER5K01adGJMcXBOdExVUUhtYk1HSEwzVHlkTjY2eTdlMmRUVWdjZjRSUDQzY3lqUmRtOWROREE4UVIxSlFSMXpaVTBTeTJacXBqdmNDZE9cL1AyRmI3K0hQXC91dENnQmw4dXIrTjJYOStRcjBUejljTFJaQmU1R0ZaeFBXUzFpdG01R2IrWkw1dlVhblwvT2Y0M2ZlajBaZXRCNlRzRUt2XC9QNCtsTitQa2VuV1Zaa3d6cXlabVJMU0h2dHNUK2NyOTVMZFQ2QVZObm1ZQzZVZEppXC9HZFJFbE03ZnBhaWR1OExUemEzQWdiMjYxbVk5T2RmQzdSa09aczBiS2JWUkFxbXRUZzh1dlo4TVU1dlg4TFV3ZE01RWlKejVXZzlUenRvUDU4Y3JRdzgrTmlVUGdmXC8yWFwvR3M0V205a1BBd0FBIiwic3ViIjoiaW5lcyIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDYyMTk0LCJpYXQiOjE1Mzk0NTg1OTR9.xoRg3XzqGApz5jFNiFBtP2roQMmI5YVjL_CRVHg4gL4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_1\",\n        \"password\": \"Player_1\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/match/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"match",
+										"1"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						},
+						{
+							"name": "Test Get Match inexistant par un User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Get match inexistant par un user\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 403\"] = responseCode.code === 403;\r",
+											"\r",
+											"tests[\"Response Body matches string Access is denied\"] = responseBody.has(\"Access is denied\");"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTTVU4Yk1SUitseDZpRlJLRlNxM1VBWmJTcmJwSVpjeFVvb0JVbmFBaXpSS2tJdWZ1Y1JoODl0WDJRYkpVbWRvaFE2cTJTRWhkT1wvSlBZT2tQcUdCZ3pjeks4eEc0dEF1cUpcL3Y1OFwvZDk3M3MrR2NHVTBiQ2NhTWFGQ1RLUkoxd0dKdE5jSmdhalhIUGJDM0tET2taYklOWUtZSXNxY0xPOENuZ2hWSGhzNFVtNHh3NVlWVENaVkRjNmV4alpXbGZEYTZXVE1lT09aaWtlS3IwZjNIRkhTdU5mQWlXMTk2c0MwMjJZWjFHa2NtblhsV3gwTTY0eGJzTmNXUXRWdE85S1R5TzZRV2s1RTJZU09vMlNkUVRHSWN5dzNPNHFVdVZvTER5K01adGJMcXBOdExVUUhtYk1HSEwzVHlkTjY2eTdlMmRUVWdjZjRSUDQzY3lqUmRtOWROREE4UVIxSlFSMXpaVTBTeTJacXBqdmNDZE9cL1AyRmI3K0hQXC91dENnQmw4dXIrTjJYOStRcjBUejljTFJaQmU1R0ZaeFBXUzFpdG01R2IrWkw1dlVhblwvT2Y0M2ZlajBaZXRCNlRzRUt2XC9QNCtsTitQa2VuV1Zaa3d6cXlabVJMU0h2dHNUK2NyOTVMZFQ2QVZObm1ZQzZVZEppXC9HZFJFbE03ZnBhaWR1OExUemEzQWdiMjYxbVk5T2RmQzdSa09aczBiS2JWUkFxbXRUZzh1dlo4TVU1dlg4TFV3ZE01RWlKejVXZzlUenRvUDU4Y3JRdzgrTmlVUGdmXC8yWFwvR3M0V205a1BBd0FBIiwic3ViIjoiaW5lcyIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU2ODY5LCJpYXQiOjE1Mzk0NTMyNjl9.ulqTX6TQRXp9gJTJr8AKpSTMsBksZi8GdRHIdg-dIlE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_1\",\n        \"password\": \"Player_1\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/match/-20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"match",
+										"-20"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						},
+						{
+							"name": "Test Put Match par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Put match par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"tests[\"Response Body matches string Match bien modifié\"] = responseBody.has(\"Match bien modifié\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDYxOTA1LCJpYXQiOjE1Mzk0NTgzMDV9.xVCCuiKm3XBq9XZTeXrupvi6x_FRG2ycBg107uAsqM0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 3,\n    \"winnerScore\": 10,\n    \"looserScore\": 1,\n    \"winner\": {\n        \"id\": 2\n    },\n    \"looser\": {\n        \"id\": 3\n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/match",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"match"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Put Match inexistant par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Put match inexistant par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 404\"] = responseCode.code === 404;\r",
+											"\r",
+											"tests[\"Response Body matches string Match inexistant\"] = responseBody.has(\"Match non trouvé\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDYxOTA1LCJpYXQiOjE1Mzk0NTgzMDV9.xVCCuiKm3XBq9XZTeXrupvi6x_FRG2ycBg107uAsqM0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 555,\n    \"winnerScore\": 10,\n    \"looserScore\": 1,\n    \"winner\": {\n        \"id\": 2\n    },\n    \"looser\": {\n        \"id\": 3\n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/match",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"match"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Delete Match par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Delete match par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"tests[\"Response Body matches Match bien supprimé\"] = responseBody.has(\"Match bien supprimé\");\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDYxOTA1LCJpYXQiOjE1Mzk0NTgzMDV9.xVCCuiKm3XBq9XZTeXrupvi6x_FRG2ycBg107uAsqM0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/match/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"match",
+										"3"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Delete Metch par un User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Delete match par un User\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 403\"] = responseCode.code === 403;\r",
+											"\r",
+											"tests[\"Response Body matches Access is denied\"] = responseBody.has(\"Access is denied\");\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTTVU4Yk1SUitseDZpRlJLRlNxM1VBWmJTcmJwSVpjeFVvb0JVbmFBaXpSS2tJdWZ1Y1JoODl0WDJRYkpVbWRvaFE2cTJTRWhkT1wvSlBZT2tQcUdCZ3pjeks4eEc0dEF1cUpcL3Y1OFwvZDk3M3MrR2NHVTBiQ2NhTWFGQ1RLUkoxd0dKdE5jSmdhalhIUGJDM0tET2taYklOWUtZSXNxY0xPOENuZ2hWSGhzNFVtNHh3NVlWVENaVkRjNmV4alpXbGZEYTZXVE1lT09aaWtlS3IwZjNIRkhTdU5mQWlXMTk2c0MwMjJZWjFHa2NtblhsV3gwTTY0eGJzTmNXUXRWdE85S1R5TzZRV2s1RTJZU09vMlNkUVRHSWN5dzNPNHFVdVZvTER5K01adGJMcXBOdExVUUhtYk1HSEwzVHlkTjY2eTdlMmRUVWdjZjRSUDQzY3lqUmRtOWROREE4UVIxSlFSMXpaVTBTeTJacXBqdmNDZE9cL1AyRmI3K0hQXC91dENnQmw4dXIrTjJYOStRcjBUejljTFJaQmU1R0ZaeFBXUzFpdG01R2IrWkw1dlVhblwvT2Y0M2ZlajBaZXRCNlRzRUt2XC9QNCtsTitQa2VuV1Zaa3d6cXlabVJMU0h2dHNUK2NyOTVMZFQ2QVZObm1ZQzZVZEppXC9HZFJFbE03ZnBhaWR1OExUemEzQWdiMjYxbVk5T2RmQzdSa09aczBiS2JWUkFxbXRUZzh1dlo4TVU1dlg4TFV3ZE01RWlKejVXZzlUenRvUDU4Y3JRdzgrTmlVUGdmXC8yWFwvR3M0V205a1BBd0FBIiwic3ViIjoiaW5lcyIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDYyMTk0LCJpYXQiOjE1Mzk0NTg1OTR9.xoRg3XzqGApz5jFNiFBtP2roQMmI5YVjL_CRVHg4gL4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/match/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"match",
+										"1"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Delete Match inexistant par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Delete match par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 404\"] = responseCode.code === 404;\r",
+											"\r",
+											"tests[\"Response Body matches Match inexistant\"] = responseBody.has(\"Match inexistant\");\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDYxOTA1LCJpYXQiOjE1Mzk0NTgzMDV9.xVCCuiKm3XBq9XZTeXrupvi6x_FRG2ycBg107uAsqM0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/match/-20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"match",
+										"-20"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Message",
+					"description": "Ce dossier contient les tests de l'entité Message",
+					"item": [
+						{
+							"name": "Test Ajout message par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Ajout message par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 201\"] = responseCode.code === 201;\r",
+											"\r",
+											"tests[\"Response Body matches string Message bien ajouté\"] = responseBody.has(\"Message bien ajouté\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU2NTM1LCJpYXQiOjE1Mzk0NTI5MzV9.bsq7t1HKMChAIBBZDInWvPUUIAXKbKvkKL6310PPPJg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n       \n        \"target\": {\n            \"id\": 3\n        },\n        \"isRead\": false,\n        \"content\": \"hello admin\",\n        \"author\": {\n            \"id\": 2\n        }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/message",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"message"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						},
+						{
+							"name": "Test Ajout message par un Utilisateur",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Ajout message par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 201\"] = responseCode.code === 201;\r",
+											"\r",
+											"tests[\"Response Body matches string Message bien ajouté\"] = responseBody.has(\"Message bien ajouté\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU2NTM1LCJpYXQiOjE1Mzk0NTI5MzV9.bsq7t1HKMChAIBBZDInWvPUUIAXKbKvkKL6310PPPJg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n        \n        \"target\": {\n            \"id\": 3\n        },\n        \"isRead\": false,\n        \"content\": \"hello user\",\n        \"author\": {\n            \"id\": 2\n        }\n    }"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/message",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"message"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Get Message par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Get utilisateur par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"tests[\"Response Body matches id\"] = responseBody.has(\"id\");\r",
+											"tests[\"Response Body matches target\"] = responseBody.has(\"target\");\r",
+											"tests[\"Response Body matches isRead\"] = responseBody.has(\"isRead\");\r",
+											"tests[\"Response Body matches content\"] = responseBody.has(\"content\");\r",
+											"tests[\"Response Body matches author\"] = responseBody.has(\"author\");\r",
+											"\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU2NTM1LCJpYXQiOjE1Mzk0NTI5MzV9.bsq7t1HKMChAIBBZDInWvPUUIAXKbKvkKL6310PPPJg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_1\",\n        \"password\": \"Player_1\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/message/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"message",
+										"1"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Get liste Message par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Get liste message par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"tests[\"Response Body matches id\"] = responseBody.has(\"id\");\r",
+											"tests[\"Response Body matches target\"] = responseBody.has(\"target\");\r",
+											"tests[\"Response Body matches isRead\"] = responseBody.has(\"isRead\");\r",
+											"tests[\"Response Body matches content\"] = responseBody.has(\"content\");\r",
+											"tests[\"Response Body matches author\"] = responseBody.has(\"author\");\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU5NTEzLCJpYXQiOjE1Mzk0NTU5MTN9.-n54Fh-H7iLS1md4D37ucrKMZAC0HFMNZ7e6_TCPFk8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_1\",\n        \"password\": \"Player_1\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/message",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"message"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						},
+						{
+							"name": "Test Get Message par un User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Get utilisateur par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"tests[\"Response Body matches id\"] = responseBody.has(\"id\");\r",
+											"tests[\"Response Body matches target\"] = responseBody.has(\"target\");\r",
+											"tests[\"Response Body matches isRead\"] = responseBody.has(\"isRead\");\r",
+											"tests[\"Response Body matches content\"] = responseBody.has(\"content\");\r",
+											"tests[\"Response Body matches author\"] = responseBody.has(\"author\");"
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTTVU4Yk1SUitseDZpRlJLRlNxM1VBWmJTcmJwSVpjeFVvb0JVbmFBaXpSS2tJdWZ1Y1JoODl0WDJRYkpVbWRvaFE2cTJTRWhkT1wvSlBZT2tQcUdCZ3pjeks4eEc0dEF1cUpcL3Y1OFwvZDk3M3MrR2NHVTBiQ2NhTWFGQ1RLUkoxd0dKdE5jSmdhalhIUGJDM0tET2taYklOWUtZSXNxY0xPOENuZ2hWSGhzNFVtNHh3NVlWVENaVkRjNmV4alpXbGZEYTZXVE1lT09aaWtlS3IwZjNIRkhTdU5mQWlXMTk2c0MwMjJZWjFHa2NtblhsV3gwTTY0eGJzTmNXUXRWdE85S1R5TzZRV2s1RTJZU09vMlNkUVRHSWN5dzNPNHFVdVZvTER5K01adGJMcXBOdExVUUhtYk1HSEwzVHlkTjY2eTdlMmRUVWdjZjRSUDQzY3lqUmRtOWROREE4UVIxSlFSMXpaVTBTeTJacXBqdmNDZE9cL1AyRmI3K0hQXC91dENnQmw4dXIrTjJYOStRcjBUejljTFJaQmU1R0ZaeFBXUzFpdG01R2IrWkw1dlVhblwvT2Y0M2ZlajBaZXRCNlRzRUt2XC9QNCtsTitQa2VuV1Zaa3d6cXlabVJMU0h2dHNUK2NyOTVMZFQ2QVZObm1ZQzZVZEppXC9HZFJFbE03ZnBhaWR1OExUemEzQWdiMjYxbVk5T2RmQzdSa09aczBiS2JWUkFxbXRUZzh1dlo4TVU1dlg4TFV3ZE01RWlKejVXZzlUenRvUDU4Y3JRdzgrTmlVUGdmXC8yWFwvR3M0V205a1BBd0FBIiwic3ViIjoiaW5lcyIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU2ODY5LCJpYXQiOjE1Mzk0NTMyNjl9.ulqTX6TQRXp9gJTJr8AKpSTMsBksZi8GdRHIdg-dIlE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_1\",\n        \"password\": \"Player_1\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/message/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"message",
+										"1"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						},
+						{
+							"name": "Test Get Message inexistant par un User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Get message inexistant par un user\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 404\"] = responseCode.code === 404;\r",
+											"\r",
+											"tests[\"Response Body matches  message avec id -20 non trouvé\"] = responseBody.has(\"Message avec id -20 non trouvé\");\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTTVU4Yk1SUitseDZpRlJLRlNxM1VBWmJTcmJwSVpjeFVvb0JVbmFBaXpSS2tJdWZ1Y1JoODl0WDJRYkpVbWRvaFE2cTJTRWhkT1wvSlBZT2tQcUdCZ3pjeks4eEc0dEF1cUpcL3Y1OFwvZDk3M3MrR2NHVTBiQ2NhTWFGQ1RLUkoxd0dKdE5jSmdhalhIUGJDM0tET2taYklOWUtZSXNxY0xPOENuZ2hWSGhzNFVtNHh3NVlWVENaVkRjNmV4alpXbGZEYTZXVE1lT09aaWtlS3IwZjNIRkhTdU5mQWlXMTk2c0MwMjJZWjFHa2NtblhsV3gwTTY0eGJzTmNXUXRWdE85S1R5TzZRV2s1RTJZU09vMlNkUVRHSWN5dzNPNHFVdVZvTER5K01adGJMcXBOdExVUUhtYk1HSEwzVHlkTjY2eTdlMmRUVWdjZjRSUDQzY3lqUmRtOWROREE4UVIxSlFSMXpaVTBTeTJacXBqdmNDZE9cL1AyRmI3K0hQXC91dENnQmw4dXIrTjJYOStRcjBUejljTFJaQmU1R0ZaeFBXUzFpdG01R2IrWkw1dlVhblwvT2Y0M2ZlajBaZXRCNlRzRUt2XC9QNCtsTitQa2VuV1Zaa3d6cXlabVJMU0h2dHNUK2NyOTVMZFQ2QVZObm1ZQzZVZEppXC9HZFJFbE03ZnBhaWR1OExUemEzQWdiMjYxbVk5T2RmQzdSa09aczBiS2JWUkFxbXRUZzh1dlo4TVU1dlg4TFV3ZE01RWlKejVXZzlUenRvUDU4Y3JRdzgrTmlVUGdmXC8yWFwvR3M0V205a1BBd0FBIiwic3ViIjoiaW5lcyIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU2ODY5LCJpYXQiOjE1Mzk0NTMyNjl9.ulqTX6TQRXp9gJTJr8AKpSTMsBksZi8GdRHIdg-dIlE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_1\",\n        \"password\": \"Player_1\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/message/-20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"message",
+										"-20"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						},
+						{
+							"name": "Test Put message par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Put utilisateur par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"tests[\"Response Body matches string Utilisateur bien modifié\"] = responseBody.has(\"Utilisateur bien modifié\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU0NDAyLCJpYXQiOjE1Mzk0NTA4MDJ9.iesQk5sFNQKkEyOqsSBoV4rZ5xOIGNLdzdlD3ZXQt4Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 4,\n    \"passwordExpired\": false,\n    \"username\": \"ines\",\n    \"image\": \"ines_newPhoto.png\",\n    \"accountLocked\": false,\n    \"password\": \"ines\",\n    \"accountExpired\": false,\n    \"enabled\": true\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Put message  inexistant par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Put utilisateur inexistant par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 404\"] = responseCode.code === 404;\r",
+											"\r",
+											"tests[\"Response Body matches string Message inexistant\"] = responseBody.has(\"Message inexistant\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTTVU4Yk1SUitseDZpRlJLRlNxM1VBWmJTcmJwSVpjeFVvb0JVbmFBaXpSS2tJdWZ1Y1JoODl0WDJRYkpVbWRvaFE2cTJTRWhkT1wvSlBZT2tQcUdCZ3pjeks4eEc0dEF1cUpcL3Y1OFwvZDk3M3MrR2NHVTBiQ2NhTWFGQ1RLUkoxd0dKdE5jSmdhalhIUGJDM0tET2taYklOWUtZSXNxY0xPOENuZ2hWSGhzNFVtNHh3NVlWVENaVkRjNmV4alpXbGZEYTZXVE1lT09aaWtlS3IwZjNIRkhTdU5mQWlXMTk2c0MwMjJZWjFHa2NtblhsV3gwTTY0eGJzTmNXUXRWdE85S1R5TzZRV2s1RTJZU09vMlNkUVRHSWN5dzNPNHFVdVZvTER5K01adGJMcXBOdExVUUhtYk1HSEwzVHlkTjY2eTdlMmRUVWdjZjRSUDQzY3lqUmRtOWROREE4UVIxSlFSMXpaVTBTeTJacXBqdmNDZE9cL1AyRmI3K0hQXC91dENnQmw4dXIrTjJYOStRcjBUejljTFJaQmU1R0ZaeFBXUzFpdG01R2IrWkw1dlVhblwvT2Y0M2ZlajBaZXRCNlRzRUt2XC9QNCtsTitQa2VuV1Zaa3d6cXlabVJMU0h2dHNUK2NyOTVMZFQ2QVZObm1ZQzZVZEppXC9HZFJFbE03ZnBhaWR1OExUemEzQWdiMjYxbVk5T2RmQzdSa09aczBiS2JWUkFxbXRUZzh1dlo4TVU1dlg4TFV3ZE01RWlKejVXZzlUenRvUDU4Y3JRdzgrTmlVUGdmXC8yWFwvR3M0V205a1BBd0FBIiwic3ViIjoiaW5lcyIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU2ODY5LCJpYXQiOjE1Mzk0NTMyNjl9.ulqTX6TQRXp9gJTJr8AKpSTMsBksZi8GdRHIdg-dIlE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 255,\n    \"target\": {\n        \"id\": 3\n    },\n    \"isRead\": false,\n    \"content\": \"hello friend\",\n    \"author\": {\n        \"id\": 2\n    }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/message",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"message"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Delete message par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Delete utilisateur par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"tests[\"Response Body matches Message bien supprimé\"] = responseBody.has(\"Message bien supprimé\");\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU5NjY2LCJpYXQiOjE1Mzk0NTYwNjZ9.tve0iCpWTMAU6ny1zFxZUD8YZzkrWfkoRyRxAU4KuoI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/message/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"message",
+										"3"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Delete message par un User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Delete utilisateur par un User\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"tests[\"Response Body matches Message bien supprimé\"] = responseBody.has(\"Message bien supprimé\");\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTTVU4Yk1SUitseDZpRlJLRlNxM1VBWmJTcmJwSVpjeFVvb0JVbmFBaXpSS2tJdWZ1Y1JoODl0WDJRYkpVbWRvaFE2cTJTRWhkT1wvSlBZT2tQcUdCZ3pjeks4eEc0dEF1cUpcL3Y1OFwvZDk3M3MrR2NHVTBiQ2NhTWFGQ1RLUkoxd0dKdE5jSmdhalhIUGJDM0tET2taYklOWUtZSXNxY0xPOENuZ2hWSGhzNFVtNHh3NVlWVENaVkRjNmV4alpXbGZEYTZXVE1lT09aaWtlS3IwZjNIRkhTdU5mQWlXMTk2c0MwMjJZWjFHa2NtblhsV3gwTTY0eGJzTmNXUXRWdE85S1R5TzZRV2s1RTJZU09vMlNkUVRHSWN5dzNPNHFVdVZvTER5K01adGJMcXBOdExVUUhtYk1HSEwzVHlkTjY2eTdlMmRUVWdjZjRSUDQzY3lqUmRtOWROREE4UVIxSlFSMXpaVTBTeTJacXBqdmNDZE9cL1AyRmI3K0hQXC91dENnQmw4dXIrTjJYOStRcjBUejljTFJaQmU1R0ZaeFBXUzFpdG01R2IrWkw1dlVhblwvT2Y0M2ZlajBaZXRCNlRzRUt2XC9QNCtsTitQa2VuV1Zaa3d6cXlabVJMU0h2dHNUK2NyOTVMZFQ2QVZObm1ZQzZVZEppXC9HZFJFbE03ZnBhaWR1OExUemEzQWdiMjYxbVk5T2RmQzdSa09aczBiS2JWUkFxbXRUZzh1dlo4TVU1dlg4TFV3ZE01RWlKejVXZzlUenRvUDU4Y3JRdzgrTmlVUGdmXC8yWFwvR3M0V205a1BBd0FBIiwic3ViIjoiaW5lcyIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU5MzQ3LCJpYXQiOjE1Mzk0NTU3NDd9.GPGMAnr0krkgDaTO181BBPitVMaEpc7t5RerUiO---I",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/message/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"message",
+										"1"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Delete message inexistant par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Delete utilisateur par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 404\"] = responseCode.code === 404;\r",
+											"\r",
+											"tests[\"Response Body matches Utilisateur inexistant\"] = responseBody.has(\"Message inexistant\");\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU5NjY2LCJpYXQiOjE1Mzk0NTYwNjZ9.tve0iCpWTMAU6ny1zFxZUD8YZzkrWfkoRyRxAU4KuoI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/message/-20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"message",
+										"-20"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "User",
+					"description": "Ce dossier contient les tests de l'entité User",
+					"item": [
+						{
+							"name": "Test Ajout utilisateur par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Ajout utilisateur par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 201\"] = responseCode.code === 201;\r",
+											"\r",
+											"tests[\"Response Body matches string Utilisateur bien ajouté\"] = responseBody.has(\"Utilisateur bien ajouté\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDUxOTEyLCJpYXQiOjE1Mzk0NDgzMTJ9.my4XTmCsvW1smNJ27haAyHgSYswFLvFvA58IlMxMB6E",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_1\",\n        \"password\": \"Player_1\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						},
+						{
+							"name": "Test Ajout de 3 utilisateurs par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Ajout de 3 utilisateurs par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 201\"] = responseCode.code === 201;\r",
+											"\r",
+											"tests[\"Response Body matches string 3 utilisateurs ajoutés\"] = responseBody.has(\"3 utilisateurs ajoutés\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDUxOTEyLCJpYXQiOjE1Mzk0NDgzMTJ9.my4XTmCsvW1smNJ27haAyHgSYswFLvFvA58IlMxMB6E",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_2\",\n        \"password\": \"Player_2\",\n        \"image\": \"4.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    },\n    {        \n        \"username\": \"Player_3\",\n        \"password\": \"Player_3\",\n        \"image\": \"5.png\",\n        \"authority\": \"ROLE_ADMIN\"\n        \n    },\n    {        \n        \"username\": \"Player_4\",\n        \"password\": \"Player_4\",\n        \"image\": \"6.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Ajout utilisateur existant par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Ajout utilisateur existant par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 201\"] = responseCode.code === 400;\r",
+											"\r",
+											"tests[\"Response Body matches string Erreur dans l'ajout de l'utilisateur\"] = responseBody.has(\"Erreur dans l'ajout de l'utilisateur\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDUyMTc5LCJpYXQiOjE1Mzk0NDg1Nzl9.NSfAioQ9R2zMKcnwv-W9NG2z8aym9YVRDGPYPoDl4k0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"ines\",\n        \"password\": \"password\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						},
+						{
+							"name": "Test Ajout utilisateur par un User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Ajout utilisateur par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 201\"] = responseCode.code === 201;\r",
+											"\r",
+											"tests[\"Response Body matches string Utilisateur bien ajouté\"] = responseBody.has(\"Utilisateur bien ajouté\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDUxOTEyLCJpYXQiOjE1Mzk0NDgzMTJ9.my4XTmCsvW1smNJ27haAyHgSYswFLvFvA58IlMxMB6E",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_1\",\n        \"password\": \"Player_1\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Get utilisateur par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Get utilisateur par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"tests[\"Response Body matches id\"] = responseBody.has(\"id\");\r",
+											"tests[\"Response Body matches username\"] = responseBody.has(\"username\");\r",
+											"tests[\"Response Body matches password\"] = responseBody.has(\"password\");\r",
+											"tests[\"Response Body matches passwordExpired\"] = responseBody.has(\"passwordExpired\");\r",
+											"tests[\"Response Body matches image\"] = responseBody.has(\"image\");\r",
+											"tests[\"Response Body matches accountLocked\"] = responseBody.has(\"accountLocked\");\r",
+											"tests[\"Response Body matches accountExpired\"] = responseBody.has(\"accountExpired\");\r",
+											"tests[\"Response Body matches enabled\"] = responseBody.has(\"enabled\");\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDUyNzIzLCJpYXQiOjE1Mzk0NDkxMjN9.67QsaAPHwGVunIKHu_bqDkRZ6vLMOJLRaah4thbssto",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_1\",\n        \"password\": \"Player_1\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user",
+										"1"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Get liste utilisateurs par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Get liste utilisateurs par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"tests[\"Response Body matches id\"] = responseBody.has(\"id\");\r",
+											"tests[\"Response Body matches username\"] = responseBody.has(\"username\");\r",
+											"tests[\"Response Body matches password\"] = responseBody.has(\"password\");\r",
+											"tests[\"Response Body matches passwordExpired\"] = responseBody.has(\"passwordExpired\");\r",
+											"tests[\"Response Body matches image\"] = responseBody.has(\"image\");\r",
+											"tests[\"Response Body matches accountLocked\"] = responseBody.has(\"accountLocked\");\r",
+											"tests[\"Response Body matches accountExpired\"] = responseBody.has(\"accountExpired\");\r",
+											"tests[\"Response Body matches enabled\"] = responseBody.has(\"enabled\");\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDUzMjIyLCJpYXQiOjE1Mzk0NDk2MjJ9.orGgSIaNAq3qmqhAtJyWTXi2jkBYaQE_ebQUwlvR52k",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_1\",\n        \"password\": \"Player_1\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Get liste utilisateurs par un User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Get liste utilisateurs par un User\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 403\"] = responseCode.code === 403;\r",
+											"\r",
+											"tests[\"Response Body matches Access is denied\"] = responseBody.has(\"Access is denied\");\r",
+											"\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDUzMjIyLCJpYXQiOjE1Mzk0NDk2MjJ9.orGgSIaNAq3qmqhAtJyWTXi2jkBYaQE_ebQUwlvR52k",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_1\",\n        \"password\": \"Player_1\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						},
+						{
+							"name": "Test Get utilisateur inexistant par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Get utilisateur inexxisant par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 404\"] = responseCode.code === 404;\r",
+											"\r",
+											"tests[\"Response Body matches string Utilisateur avec id -20 non trouvé\"] = responseBody.has(\"Utilisateur avec id -20 non trouvé\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDUzNDA0LCJpYXQiOjE1Mzk0NDk4MDR9.eXaxIu_5BKGliSQeDw95jqijg7Ld3Da6Wo6NSBEFv_w",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n\t{        \n        \"username\": \"Player_1\",\n        \"password\": \"Player_1\",\n        \"image\": \"3.png\",\n        \"authority\": \"ROLE_USER\"\n        \n    }\n]"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user/-20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user",
+										"-20"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Put utilisateur par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Put utilisateur par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"tests[\"Response Body matches string Utilisateur bien modifié\"] = responseBody.has(\"Utilisateur bien modifié\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU0NDAyLCJpYXQiOjE1Mzk0NTA4MDJ9.iesQk5sFNQKkEyOqsSBoV4rZ5xOIGNLdzdlD3ZXQt4Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 4,\n    \"passwordExpired\": false,\n    \"username\": \"ines\",\n    \"image\": \"ines_newPhoto.png\",\n    \"accountLocked\": false,\n    \"password\": \"ines\",\n    \"accountExpired\": false,\n    \"enabled\": true\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						},
+						{
+							"name": "Test Put utilisateur inexistant par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Put utilisateur inexistant par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 404\"] = responseCode.code === 404;\r",
+											"\r",
+											"tests[\"Response Body matches string Utilisateur inexistant\"] = responseBody.has(\"Utilisateur inexistant\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU0NDAyLCJpYXQiOjE1Mzk0NTA4MDJ9.iesQk5sFNQKkEyOqsSBoV4rZ5xOIGNLdzdlD3ZXQt4Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 5475,\n    \"passwordExpired\": false,\n    \"username\": \"ines\",\n    \"image\": \"ines_newPhoto.png\",\n    \"accountLocked\": false,\n    \"password\": \"ines\",\n    \"accountExpired\": false,\n    \"enabled\": true\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						},
+						{
+							"name": "Test Delete utilisateur par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Delete utilisateur par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+											"\r",
+											"tests[\"Response Body matches Utilisateur bien supprimé\"] = responseBody.has(\"Utilisateur bien supprimé\");\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU5NTEzLCJpYXQiOjE1Mzk0NTU5MTN9.-n54Fh-H7iLS1md4D37ucrKMZAC0HFMNZ7e6_TCPFk8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user",
+										"5"
+									]
+								},
+								"description": "La Requète POST:Créer un nouveau utilisateur avec un role"
+							},
+							"response": []
+						},
+						{
+							"name": "Test Delete utilisateur inexistant par un Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Delete utilisateur par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 404\"] = responseCode.code === 404;\r",
+											"\r",
+											"tests[\"Response Body matches Utilisateur inexistant\"] = responseBody.has(\"Utilisateur inexistant\");\r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTdlVcL2JRQlJcL1RoTlJnVlNnRWtnZFlBRTI1RWgwek1SbjFjb05xR2tXa0VBWCsrRWVuT1wvTTNSbVNwY3BFaHd5cGFKRXFkZTNJZjlJdVwvUU5RTzNSbDd0cDNodURBZ25xVFwvZTduMzlmenhSVlVqSWJuc1daY0dEOFZXY3lsYjFMTlpXd3d6RFMzSFQ4enFDTzBPZUpGRG16U0JLNlBWd0l2Z0JLUExEd05EdGd4cXdvbTQrcG02d0JEVzJ0cldGSTZ2bUhjMXl6QkU2VVBcL1Z2dVVHbThJMUJRZTk5S01MSU5reXdNVlNadFhjbjFkc28xUnRzd1Vjd0NGUjY2MFZSSU55Z3RaOElNUTBkUXNwYkFLSUF4bHRsM2lsUTVHZ3ZqMTJZenkwVzFnYllXd09PVUdVUHU3aVZwV0dmZDNUdWJraEljd1hzb3QxT1BEblczNEtDKzRcL0ZYbFJDVW1pdHA1cHN5VVJIZjUwNmMrTHN6WnpcLzdYN3ZORWdCMXN2andOOFg4MlFwMHYrXC8rbmMyTDlrSUwwMFBXQzFpdG5aS2J5WUw1clVhbmZQbGw2OVA1MVllZFI2VHNFQnZcL3Y0XC81NVp2bU9xc3FTWmxtVmczdGlHaFB5dTZaeUZjZUpoOXNvZU0zZUpJS3BEOUtXb3h1SlFwaWlsdldTZ3o2dGpENlpqTlkzMXRlZVwvMnk3bDRyTEVxNEpOVW5lV2kzTFQ5UXRLdmVuNDhcLytuT1wvaU9FVlZJNlp5SkE2bnloQTlTeHBvVDY5T0o4WitcL3k3bHljWVwvTTNcL0FNaDBvOTRSQXdBQSIsInN1YiI6ImFkbWluIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDUyNzIzLCJpYXQiOjE1Mzk0NDkxMjN9.67QsaAPHwGVunIKHu_bqDkRZ6vLMOJLRaah4thbssto",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user/-20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user",
+										"-20"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Test Delete utilisateurpar un User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test Delete utilisateur par un Admin\r",
+											"\r",
+											"console.info();\r",
+											"\r",
+											"tests[\"Status code is 403\"] = responseCode.code === 403;\r",
+											"\r",
+											"tests[\"Response Body matches Access is denied\"] = responseBody.has(\"Access is denied\");\r",
+											" \r",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJwcmluY2lwYWwiOiJINHNJQUFBQUFBQUFBSlZTTVU4Yk1SUitseDZpRlJLRlNxM1VBWmJTcmJwSVpjeFVvb0JVbmFBaXpSS2tJdWZ1Y1JoODl0WDJRYkpVbWRvaFE2cTJTRWhkT1wvSlBZT2tQcUdCZ3pjeks4eEc0dEF1cUpcL3Y1OFwvZDk3M3MrR2NHVTBiQ2NhTWFGQ1RLUkoxd0dKdE5jSmdhalhIUGJDM0tET2taYklOWUtZSXNxY0xPOENuZ2hWSGhzNFVtNHh3NVlWVENaVkRjNmV4alpXbGZEYTZXVE1lT09aaWtlS3IwZjNIRkhTdU5mQWlXMTk2c0MwMjJZWjFHa2NtblhsV3gwTTY0eGJzTmNXUXRWdE85S1R5TzZRV2s1RTJZU09vMlNkUVRHSWN5dzNPNHFVdVZvTER5K01adGJMcXBOdExVUUhtYk1HSEwzVHlkTjY2eTdlMmRUVWdjZjRSUDQzY3lqUmRtOWROREE4UVIxSlFSMXpaVTBTeTJacXBqdmNDZE9cL1AyRmI3K0hQXC91dENnQmw4dXIrTjJYOStRcjBUejljTFJaQmU1R0ZaeFBXUzFpdG01R2IrWkw1dlVhblwvT2Y0M2ZlajBaZXRCNlRzRUt2XC9QNCtsTitQa2VuV1Zaa3d6cXlabVJMU0h2dHNUK2NyOTVMZFQ2QVZObm1ZQzZVZEppXC9HZFJFbE03ZnBhaWR1OExUemEzQWdiMjYxbVk5T2RmQzdSa09aczBiS2JWUkFxbXRUZzh1dlo4TVU1dlg4TFV3ZE01RWlKejVXZzlUenRvUDU4Y3JRdzgrTmlVUGdmXC8yWFwvR3M0V205a1BBd0FBIiwic3ViIjoiaW5lcyIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpc3MiOiJTcHJpbmcgU2VjdXJpdHkgUkVTVCBHcmFpbHMgUGx1Z2luIiwiZXhwIjoxNTM5NDU0NTA2LCJpYXQiOjE1Mzk0NTA5MDZ9.h_PzkM9PiJpKkz-gRkWfih936SyLobhMyW_axiFfHVw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/user/-20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"user",
+										"-20"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Login",
+					"description": "Ce dossier coontient le test de l'authentification",
+					"item": [
+						{
+							"name": "Test authentification réussite par un admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test authentification réeussite par un admin",
+											"",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Response contains access_token\"] = responseBody.has(\"access_token\");",
+											"tests[\"Response contains refresh_token\"] = responseBody.has(\"refresh_token\");",
+											"",
+											"var responseJSON;",
+											"",
+											"try { responseJSON = JSON.parse(responseBody); }",
+											"catch(e) {}",
+											"",
+											"postman.setGlobalVariable(\"access_token\",responseJSON.access_token);",
+											"postman.setGlobalVariable(\"refresh_token\",responseJSON.refresh_token);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var timeInSeconds = parseInt((new Date()).getTime() / 1000);\r",
+											"var sigString = environment.apiKey + environment.secretKey + timeInSeconds\r",
+											"var token = CryptoJS.SHA256(sigString);\r",
+											"postman.setEnvironmentVariable(\"token\", token);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"username\": \"admin\",\r\n\"password\": \"password\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"login"
+									]
+								},
+								"description": "C'est la  requète d'authentification"
+							},
+							"response": []
+						},
+						{
+							"name": "Test authentification réussite par un user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"// Test authentification réeussite par un user",
+											"",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"tests[\"Response contains access_token\"] = responseBody.has(\"access_token\");",
+											"tests[\"Response contains refresh_token\"] = responseBody.has(\"refresh_token\");",
+											"",
+											"var responseJSON;",
+											"",
+											"try { responseJSON = JSON.parse(responseBody); }",
+											"catch(e) {}",
+											"",
+											"postman.setGlobalVariable(\"access_token\",responseJSON.access_token);",
+											"postman.setGlobalVariable(\"refresh_token\",responseJSON.refresh_token);"
+										]
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var timeInSeconds = parseInt((new Date()).getTime() / 1000);\r",
+											"var sigString = environment.apiKey + environment.secretKey + timeInSeconds\r",
+											"var token = CryptoJS.SHA256(sigString);\r",
+											"postman.setEnvironmentVariable(\"token\", token);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"username\": \"ines\",\r\n\"password\": \"ines\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"login"
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}

@@ -1,9 +1,8 @@
 package fr.mbds.tp
 
-import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
-@Secured(['ROLE_ADMIN'])
+
 class MatchController {
 
     MatchService matchService
@@ -14,7 +13,7 @@ class MatchController {
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         User utilisateurCourant = userProfileService.getCurrentUser()
-        respond matchService.list(params), model:[matchCount: matchService.count(), username:utilisateurCourant.username]
+        respond matchService.list(params), model:[matchCount: matchService.count(), username:utilisateurCourant.username,role:userProfileService.getRoleCurrentUser().toString()]
     }
 
     def show(Long id) {

@@ -13,24 +13,16 @@
 <div class="svg" role="presentation">
     <div class="grails-logo-container">
         <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
-
     </div>
 </div>
 <div id="content" role="main">
     <section class="row colset-2-its">
-        <h1>Welcome to player management platform and results</h1>
-
-        <p>
-            Congratulations, you have successfully started your first Grails application! At the moment
-            this is the default page, feel free to modify it to either redirect to a controller or display
-            whatever content you may choose. Below is a list of controllers that are currently deployed in
-            this application, click on each to execute its default action:
-        </p>
-
 
     </section>
 </div>
 
+<h1 style="text-align: center">Bienvenue sur notre plateforme de gestion de jeux et résultats</h1>
+<p>Notre plateforme va vous permettre de consulter tous les matchs auxquels vous avez participer et de consulter tous les messages que vous avez envoyé  ou reçu et si vous êtes administrateur de cette plateforme vous aurez la possibilité d'effectuer toutes les opérations de CRUD </p>
 
 
 

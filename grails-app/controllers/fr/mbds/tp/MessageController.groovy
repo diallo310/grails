@@ -16,7 +16,7 @@ class MessageController {
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         User utilisateurCourant = userProfileService.getCurrentUser()
-        respond messageService.list(params), model:[messageCount: messageService.count(), username:utilisateurCourant.username]
+        respond messageService.list(params), model:[messageCount: messageService.count(), username:utilisateurCourant.username,role:userProfileService.getRoleCurrentUser().toString()]
     }
 
     def show(Long id) {
@@ -108,6 +108,7 @@ class MessageController {
             '*'{ render status: NOT_FOUND }
         }
     }
+    
 
 
 }
