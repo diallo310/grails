@@ -52,7 +52,7 @@ Cron fonctionnel pour purger les messages, toutes les nuits à 4h du matin.(clas
 
 **Modèle de données en fonction des contraintes et besoins du TP**
 
-![Ressource User](/Documentation/Images/Modele_Donnees.png)
+![Modèle de données en fonction des contraintes et besoins du TP](/Documentation/Images/Modele_Donnees.png)
 
 
 
@@ -61,10 +61,10 @@ Cron fonctionnel pour purger les messages, toutes les nuits à 4h du matin.(clas
 ![Ressource User](/Documentation/Images/Ressource_User.png)
 
 
-![Ressource User](/Documentation/Images/Ressource_Message.png)
+![Ressource Message](/Documentation/Images/Ressource_Message.png)
 
 
-![Ressource User](/Documentation/Images/Ressource_Match.png)
+![Ressource Match](/Documentation/Images/Ressource_Match.png)
 
 
 
