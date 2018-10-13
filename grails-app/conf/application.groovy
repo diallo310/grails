@@ -21,8 +21,18 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern:  '/login/**',      access:['IS_AUTHENTICATED_ANONYMOUSLY']],
 	[pattern: '/**',             access: ['IS_AUTHENTICATED_FULLY']],
 	[pattern: '/api/**',         access: ['IS_AUTHENTICATED_FULLY']],
-	[pattern: '/api/logout',     access: ['isAuthenticated()']]
-
+	[pattern: '/match/index',access: ['permitAll']],
+	[pattern: '/match/show/**',access: ['permitAll']],
+	[pattern: '/match/edit',access: ['ROLE_ADMIN']],
+	[pattern: '/match/delete',access: ['ROLE_ADMIN']],
+	[pattern: '/user/index',access: ['ROLE_ADMIN']],
+	[pattern: '/user/show/**',access: ['permitAll']],
+	[pattern: '/match/edit',access: ['ROLE_ADMIN']],
+	[pattern: '/match/delete',access: ['ROLE_ADMIN']],
+	[pattern: '/mesage/index',access: ['permitAll']],
+	[pattern: '/message/show/**',access: ['permitAll']],
+	[pattern: '/message/edit',access: ['ROLE_ADMIN']],
+	[pattern: '/message/delete',access: ['ROLE_ADMIN']]
 ]
 
 

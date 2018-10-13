@@ -14,4 +14,22 @@ class UserProfileService {
         return new User(username:grailsUser.username, password:grailsUser.password, enabled:grailsUser.enabled, accountExpired:!grailsUser.accountNonExpired, accountLocked:!grailsUser.accountNonLocked, passwordExpired:false)
     }
 
+    def getRoleCurrentUser(){
+        GrailsUser grailsUser = springSecurityService.principal
+        def authorities =grailsUser.authorities
+        def isAdminUser
+        authorities.each { authority ->
+            println(authority)
+           if(authority.toString()=="ROLE_ADMIN"){
+               isAdminUser =true
+
+           }
+
+        }
+        return isAdminUser
+
+    }
+
+
+
 }

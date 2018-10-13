@@ -44,7 +44,16 @@ body {
 #grailsLogo {
     background-color: #feb672;
 }
+#list-match h1{
+    color: darkblue;
+}
 
+#list-message h1{
+    color: darkblue;
+}
+#list-user h1{
+    color: darkblue;
+}
 a:hover, a:active {
     outline: none; /* prevents outline in webkit on active links but retains it for tab focus */
 }
@@ -496,12 +505,8 @@ th:hover, tr:hover {
 /* ACTION BUTTONS */
 
 .buttons {
-    background-color: #efefef;
     overflow: hidden;
     padding: 0.3em;
-    -moz-box-shadow: 0 0 3px 1px #aaaaaa;
-    -webkit-box-shadow: 0 0 3px 1px #aaaaaa;
-    box-shadow: 0 0 3px 1px #aaaaaa;
     margin: 0.1em 0 0 0;
     border: none;
 }
@@ -549,11 +554,17 @@ th:hover, tr:hover {
 }
 
 .buttons .delete {
-    background-image: url(../images/skin/database_delete.png);
+    /*background-image: url(../images/skin/database_delete.png);*/
+    background-image: url(../images/delete.png);
+
+
 }
 
 .buttons .edit {
-    background-image: url(../images/skin/database_edit.png);
+    /*background-image: url(../images/skin/database_edit.png);*/
+    background-image: url(../images/edit.png);
+    height: 30px;
+    width: 50px;
 }
 
 .buttons .save {

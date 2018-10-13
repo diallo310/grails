@@ -12,41 +12,55 @@ class ApiController {
     def user() {
         switch (request.getMethod()) {
             case "POST":
+                int numberOfUsersAdded = 0
                 request.JSON.each { u ->
-
                     String username = u.username
                     String password = u.password
                     String authority = u.authority
                     String image = u.image
 
-                    User user = User.findOrCreateByUsernameAndImageAndPassword(username,image,password).save(flush: true)
+                    User user = User.findOrCreateByUsernameAndImageAndPassword(username, image, password).save(flush: true)
                     Role role = Role.findOrCreateByAuthority(authority).save(flush: true)
 
                     UserRole userRole = new UserRole(user: user, role: role)
 
                     if (userRole.save(flush: true)) {
-                        response.status = 201
-                    } else {
-                        response.status = 400
+                        numberOfUsersAdded++
                     }
                 }
+                if (numberOfUsersAdded == 1) {
+                    render(status: 201, 'Utilisateur bien ajouté')
+                } else if (numberOfUsersAdded > 1) {
+                    String message = numberOfUsersAdded.toString() + ' utilisateurs ajoutés'
+                    render(status: 201, message)
+                } else if(numberOfUsersAdded < 1) {
+                    render(status: 400, "Erreur dans l'ajout de l'utilisateur")
+                }else {
+                    render(status: 401, 'Veuillez vérifier votre "access Token"')
+                }
+
+
                 break
             case "GET":
 
                 if (params.id) {
                     if (userService.get(params.id)) {
                         render userService.get(params.id) as JSON
+                        render(status: 200, 'Utilisateur avec' + params.id +
+                                'est trouvé')
                     } else {
-                        render(status: 404, 'Not Found')
+                        render(status: 404, 'Utilisateur avec' + params.id +
+                                'non trouvé')
                     }
+                } else if (userService.list(params)) {
 
-                } else {
-                    if (userService.list(params)) {
-                        render userService.list(params) as JSON
-                    } else {
-                        render(status: 404, 'Not Found')
-                    }
+                    render userService.list(params) as JSON
+                    render(status: 200, 'la liste des utilisateurs existe')
+                } else{
+                    render(status: 404, 'la liste des utilisateurs n"existe pas')
                 }
+                    render(status: 401, 'Veuillez vérifier votre "access Token"')
+
                 break
             case "PUT":
                 def user = userService.get(request.JSON.id)

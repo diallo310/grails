@@ -4,9 +4,6 @@ package fr.mbds.tp
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 
-
-
-@Secured(['ROLE_ADMIN'])
 class UserController {
 
     UserService userService
