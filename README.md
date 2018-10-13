@@ -57,7 +57,7 @@ Le modèle de donnée de l’API est composée de trois entités(User,Message,Ma
 
 **1.	Ressource « User »**
 
-L’entité User est composée des attributs suivants
+L’entité User est composée des attributs suivants:
 - Id
 - username
 - Password
@@ -71,7 +71,8 @@ L’entité User est composée des attributs suivants
 
 
 **2.	Ressource « Match »**
-L'entité Match est composée des attributs suivants
+
+L'entité Match est composée des attributs suivants:
 - winner
 - winnerScore
 - looser
@@ -80,7 +81,8 @@ L'entité Match est composée des attributs suivants
 ![Ressource Message](/Documentation/Images/Ressource_Message.png)
 
 **3.	Ressource « Message »**
-L’entité Message est composée des attributs suivants
+
+L’entité Message est composée des attributs suivants:
 - author
 - target
 - content
@@ -91,9 +93,11 @@ L’entité Message est composée des attributs suivants
 
 
 **Procédure de Test**
+
 Nous avons utilisé une collection Postman. Pour chaque ressource, nous avons créé plusieurs scénarios pour les différentes réponses http possibles.
 
 **Bonus**
+
 Utilisation de Spring Security et son extension pour la mise en place dans le cadre d’une API REST : nous avons importé les deux plugins **spring-security-core** et **spring-security-rest** dans le fichier **build.gradle**. Après nous avons configuré à la main les accès aux différents services des ressources exposées dans le fichier **application.groovy**.
 
 ```
