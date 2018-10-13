@@ -10,7 +10,7 @@ class UrlMappings {
         }
 
 
-        "/"(controller: "login",action: "auth")
+       // "/"(controller: "login",action: "auth")
 
         "/"(view:"/login/auth")
 
